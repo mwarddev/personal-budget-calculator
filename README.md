@@ -195,17 +195,21 @@ View wireframes [here](assets/readme_images/pbc_wireframes.pdf)
 ### Surface
 The final design plane looks at the aesthetic of the site. The goal is to create a visually appealing site whilst maitaining readability and accessability.
 
-#### Colour Palette
+#### **Colour Palette**
 
 ![Colour Palette](assets/readme_images/pbc_pp2_palette.png)
 
 I chose this simple palette from [coolors](https://coolors.co) to highlight positive and negative equity on the site.
 
-#### Typography
+#### **Typography**
 
 All fonts have been imported from [Google Fonts](https://fonts.google.com/).
 
 The Poppins font was chosen for headings for readability purposes and the Roboto font for all other text. This was also for readability and Roboto is a recommended pairing for the Poppins font.
+
+#### **Iconography**
+
+Favicon ![icon](assets/images/pbc_icon.ico) created by myself as a .png file then coverted to an .ico file using [image.online-convert.com](https://image.online-convert.com/convert-to-ico).
 
 ## Features
 ### Existing Features
