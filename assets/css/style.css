@@ -21,7 +21,36 @@ h1, h2, h3 {
 #heading {
     background-color: #008600;
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 100%;
-    overflow: auto;
+    overflow: auto;    
+}
+
+#heading h1 {
+    margin: 20px 10%;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* How to use box */
+#how-to-use {
+    text-align: left;
+    width: 300px;
+    height: auto;
+    border: solid 1px #000000;
+    border-radius: 5px;
+    margin-top: 40px;
+    padding: 5px;
+    line-height: 1.2;
+}
+
+#green {
+    color: #00b200;
+}
+
+#red {
+    color: #ff0000;
 }
