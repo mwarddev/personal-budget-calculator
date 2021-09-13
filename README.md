@@ -3,6 +3,16 @@
 Personal Budget Calculator (or PBC) helps the user calculate their personal finances over the course of a month. The calculator with give the user a visual representation of their finances with balances and a chart to show how much of their income they are saving or where overspending occurs. The results will show a percentage of each outgoing element so they can identify where they can make further savings. The form can also be manipulated further to show the impact of these savings after a recalculation. The form data can also be manipulated to calculate where savings could be made and offer tips to the user.
 
 ## Contents
+* [Description](#personal-budget-calculator)
+* [User Experience (UX)](#user-experience-ux)
+    * [User Stories](#user-stories)
+* [Design (UXD)](#design-uxd)
+    * [Strategy](#strategy)
+    * [Scope](#scope)
+    * [Structure](#structure)
+    * [Skeleton](#skeleton)
+    * [Surface](#surface)
+
 
 ## User Experience (UX)
 
@@ -179,3 +189,31 @@ Each user input box has the option to enter values per day, week, month, or year
 
 ### Skeleton
 The site will be designed to look similar on all devices and will be displayed on one page. A wireframe mock-up layout has been made using [Balsamiq](https://balsamiq.com).
+
+View wireframes [here](assets/readme_images/pbc_wireframes.pdf)
+
+### Surface
+The final design plane looks at the aesthetic of the site. The goal is to create a visually appealing site whilst maitaining readability and accessability.
+
+#### Colour Palette
+
+![Colour Palette](assets/readme_images/pbc_pp2_palette.png)
+
+I chose this simple palette from [coolors](https://coolors.co) to highlight positive and negative equity on the site.
+
+#### Typography
+
+All fonts have been imported from [Google Fonts](https://fonts.google.com/).
+
+The Poppins font was chosen for headings for readability purposes and the Roboto font for all other text. This was also for readability and Roboto is a recommended pairing for the Poppins font.
+
+## Features
+### Existing Features
+
+### Future Features
+
+## Testing
+
+## Deployment
+
+## Credits
