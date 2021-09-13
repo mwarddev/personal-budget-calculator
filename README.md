@@ -1,108 +1,181 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Personal Budget Calculator
 
-Welcome USER_NAME,
+Personal Budget Calculator (or PBC) helps the user calculate their personal finances over the course of a month. The calculator with give the user a visual representation of their finances with balances and a chart to show how much of their income they are saving or where overspending occurs. The results will show a percentage of each outgoing element so they can identify where they can make further savings. The form can also be manipulated further to show the impact of these savings after a recalculation. The form data can also be manipulated to calculate where savings could be made and offer tips to the user.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Contents
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## User Experience (UX)
 
-## Gitpod Reminders
+### User Stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+#### External User Goals:
+* The site users want a tool to easily calculate their monthly expenditure with results that make it easy to identify where savings can be made.
 
-`python3 -m http.server`
+#### Site Owner Goals:
+* The site owner’s goal is to provide the user with an easy-to-use tool to calculate their monthly expenditure.
+* The site owner’s goal is to help the user to visualise where they can make savings by providing easy to read results and allowing them to adjust the form data to see where savings can be made.
+* The site owner’s goal is to use the data provided by the user to suggest areas of expenditure where savings could be made.
 
-A blue button should appear to click: _Make Public_,
+## Design (UXD)
 
-Another blue button should appear to click: _Open Browser_.
+### Strategy
+* Is the content culturally appropriate?
+    * Yes. Content is supplied by the user and the results are a manipulation of the user’s data.
+* Is the content relevant?
+    * Yes. All content contains information about the subject matter.
+* Can we track and catalogue the content in an intuitive way?
+    * Yes. All content is stored as form data and is sectioned relative to the subject matter and to aid in the completion of the form.
+* Is the technology appropriate?
+    * Yes. Form data is the best way to collect user input. 
+* Why are we so special? What sets us apart?
+    * Every effort is being made to make the user’s experience as easy as possible.
+* Tech considerations?
+    * The site will be fully responsive and easily usable on all types of devices. The site will be created with HTML & CSS and controlled with JavaScript.
+* Why would a user want this?
+    * Users want this to aid in the calculation of their finances. This can be done in several ways by the user (writing info down and using a calculator or by creating a spreadsheet) but this site takes all the legwork out of it for them.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Scope
+* What does the user want to accomplish?
+    * The user wants to work out their budget for the month.
+* What does the user need to do in order to achieve their objective?
+    * The user needs to input their data in an easy-to-use form and click the calculate button.
+* What constraints does the site or app have to conform within?
+    * Limited build time. No back end to store user data for a month-on-month review.
+* What dynamic constraints do we have to meet?
+    * Ensure calculations are correct.
 
-A blue button should appear to click: _Make Public_,
+### Structure
 
-Another blue button should appear to click: _Open Browser_.
+The structure plane uses the information gathered in the strategy and scope planes to design a user-friendly layout for the site incorporating the wants and needs of the user.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* Heading (Personal Budget Planner)
+* How to use (dropdown)
+* Currency Selector (user input)
+<details>
+<summary>Income Section (user input)</summary>
+ 
+* Wages (after tax)
+* Pension
+* Rent (collected from lodgers/tenants)
+* Child Support Received
+* Investments
+* Benefits
+* Add box (option to add more boxes, name them and remove them)
 
-To log into the Heroku toolbelt CLI:
+</details>
+<details>
+<summary>Finances/Debt (user input)</summary>
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+* Personal Loan
+* Student Loan
+* Credit Cards
+* Store Cards
+* Hire Purchase
+* Catalogue
+* Child Support
+* Add box (option to add more boxes, name them and remove them)
+</details>
+<details>
+<summary>Savings/Investments (user input)</summary>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+* Savings Account Payments
+* ISA Payments
+* Child Savings/Trust Fund
+* Investments
+* Add box (option to add more boxes, name them and remove them)
+</details>
+<details>
+<summary>Household Bills (user input)</summary>
+ 
+* Mortgage/Rent
+* Council Tax/Rates
+* Gas
+* Electricity
+* Other Fule Costs (Oil, Coal, Wood)
+* Water
+* Add box (option to add more boxes, name them and remove them)
+</details>
+<details>
+<summary>Insurance (user input)</summary>
+ 
+* Home Insurance
+* Contents Insurance
+* Life Insurance
+* Pet Insurance
+* Home Appliance Insurance
+* Boiler Cover Insurance
+* High Value Items Insurance
+* Vehicle Insurance
+* Add box (option to add more boxes, name them and remove them)
+</details>
+<details>
+<summary>Subscriptions/Direct Debits (user input)</summary>
+ 
+* Internet
+* Home Phone
+* TV Subscriptions (Sky, Virgin Media, BT etc)
+* Streaming Services (Netflix, Now TV, Prime Video etc)
+* TV Licence
+* Mobile Phone
+* Gym Membership
+* Website Subscriptions
+* Book Club
+* Add box (option to add more boxes, name them and remove them)
+</details>
+<details>
+<summary>Transport (user input)</summary>
+ 
+* Vehicle Tax
+* MOT
+* Servicing
+* Fuel
+* Public Transport
+* Add box (option to add more boxes, name them and remove them)
+</details>
+<details>
+<summary>Living Costs</summary>
+ 
+* Groceries
+* Clothing & Footwear
+* Personal Health (medical care)
+* Beauty & Grooming
+* Repairs/Household Maintenance
+* Cleaning Services
+* Add box (option to add more boxes, name them and remove them)
+</details>
+<details>
+<summary>Family (user input)</summary>
+ 
+* Child Care
+* Birthdays
+* Christmas
+* Vet Bills
+* Pet Food
+* Add box (option to add more boxes, name them and remove them)
+</details>
+<details>
+<summary>Leisure (user input)</summary>
 
-------
+* Eating Out
+* Days Out (include parking costs, admission, activity costs, food, and drink)
+* Nights Out
+* Household Drinking (alcohol)
+* Takeaway Food
+* Tobacco
+* Add box (option to add more boxes, name them and remove them)
+</details>
 
-## Release History
+* Calculate Button/Re-calculate Button
+    * Return Income
+    * Return Expenditure Sum
+    * Return Outcome Balance (savings = green/negative equity = red)
+    * Display expenditure in a pie chart
+    * Offer tips on where savings can be made (build time permitting)
+* Reset Form Data Button
+* Footer
+    * Copyright Info
+Once calculated, the user has the option to manipulate the form data and re-calculate to see where savings could be made.
+Each user input box has the option to enter values per day, week, month, or year. The calculate function takes these into consideration and calculates what the value would be per month.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+### Skeleton
+The site will be designed to look similar on all devices and will be displayed on one page. A wireframe mock-up layout has been made using [Balsamiq](https://balsamiq.com).
