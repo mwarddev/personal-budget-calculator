@@ -37,18 +37,35 @@ h1, h2, h3 {
 
 /* How to use box */
 #how-to-use {
-    text-align: left;
+    text-align: left;    
+    margin: 80px 0 20px 0;   
+}
+
+#how-to-use summary {
+    cursor: pointer;
+    list-style-type: none;
+}
+
+#how-to-use summary::after {
+    content: '+';
+    color: gray;
+    padding-left: 10px;
+}
+
+#how-to-use[open] summary::after {
+    content: '-';
+    color: gray;
+    padding-left: 10px;
+}
+
+#how-to-info {
     width: 300px;
     height: auto;
     border: solid 1px #000000;
     border-radius: 5px;
-    margin: 80px 0 20px 0;
     padding: 5px;
     line-height: 1.2;
-}
-
-#how-to-info {
-    
+    margin-top: 5px;
 }
 
 #green {
