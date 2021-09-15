@@ -47,6 +47,10 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
+#how-to-info {
+    
+}
+
 #green {
     color: #00b200;
 }
@@ -70,12 +74,35 @@ h1, h2, h3 {
 
 summary h2 {
     text-transform: uppercase;
+    display: inline;
+}
+
+.drop {
+    list-style-type: none;
+    width: 60%;
+    margin: auto;
+    cursor: pointer;
+}
+
+.drop::after {
+    content: '+';
+    font-size: 2rem;
+    color: grey;
+    float: right;
+    padding-right: 20px;
+}
+
+details[open] .drop::after {
+    content: '-';
+    font-size: 2rem;
+    color: grey;
+    float: right;
+    padding-right: 20px;
 }
 
 .user-input {
     margin: 20px auto;
     width: 80%;
-
 }
 
 .user-input label {
