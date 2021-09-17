@@ -149,6 +149,17 @@ details[open] .drop::after {
     width: 60%;
     margin: auto;
     text-align: left;
+    display: block;
+}
+
+.add-box-btn {
     font-size: 2rem;
-    color: #008600;
+    color: #00b200;
+    border: none;
+    background-color: unset;
+    display: inline;
+}
+
+.add-box p {
+    display: inline;
 }
