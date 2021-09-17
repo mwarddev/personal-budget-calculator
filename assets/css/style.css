@@ -92,6 +92,7 @@ h1, h2, h3 {
 summary h2 {
     text-transform: uppercase;
     display: inline;
+    padding-left: 38px;
 
 }
 
@@ -162,4 +163,10 @@ details[open] .drop::after {
 
 .add-box p {
     display: inline;
+}
+
+/* Calculate button */
+
+#calculate {
+    margin-top: 20px;
 }
