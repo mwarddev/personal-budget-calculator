@@ -170,3 +170,15 @@ details[open] .drop::after {
 #calculate {
     margin-top: 20px;
 }
+
+/*Footer*/
+
+footer {
+    height: 80px;
+    background-color: #008600;
+    color: #ffffff;
+}
+
+footer p {
+    padding-top: 32px;
+}
