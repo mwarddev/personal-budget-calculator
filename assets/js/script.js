@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for(button of buttons) {
         button.addEventListener("click", function() {
-            if(this.getAttribute("data-type") === "submit") {
-                calculate();
+            if(this.getAttribute("type") === "submit") {
+                calculateResult();
             } else {
                 addBox();
             }
@@ -25,4 +25,42 @@ selectedCurrency.addEventListener("click", function() {
         currencyPlaceholder.placeholder = selectedCurrency.value;
     }
 })
+
+/**
+ * Calculates the input depending on the period selected
+ */
+function calculatePeriod() {
+    
+    let selectedPeriods = document.getElementsByClassName("period");    
+
+    let userInput = document.getElementsByTagName("input")
+
+    for(selectedPeriod of selectedPeriods) {
+        
+        if(selectedPeriod.value === "daily") {
+            return userInput.value * 30.41;
+        } else if(selectedPeriod.value === "weekly") {
+            return userInput.value * 4.34;
+        } else if(selectedPeriod.value === "yearly") {
+            return userInput.value / 12;
+        } else {
+            return userInput.value;
+        }
+    }
+    selectedPeriods.addEventListener("click", calculatePeriod);
+}
+
+
+
+function calculateIncome() {
+
+}
+
+function calculateResult() {
+
+}
+
+function addBox() {
+
+}
 
