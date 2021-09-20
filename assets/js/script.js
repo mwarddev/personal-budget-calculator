@@ -29,31 +29,47 @@ selectedCurrency.addEventListener("click", function() {
 /**
  * Calculates the input depending on the period selected
  */
-function calculatePeriod() {
+// function calculatePeriod() {
     
-    let selectedPeriods = document.getElementsByClassName("period");    
+//     let selectedPeriods = document.getElementsByClassName("period");    
 
-    let userInput = document.getElementsByTagName("input")
+//     let userInput = document.getElementsByTagName("input")
 
-    for(selectedPeriod of selectedPeriods) {
+//     for(let selectedPeriod of selectedPeriods) {
         
-        if(selectedPeriod.value === "daily") {
-            return userInput.value * 30.41;
-        } else if(selectedPeriod.value === "weekly") {
-            return userInput.value * 4.34;
-        } else if(selectedPeriod.value === "yearly") {
-            return userInput.value / 12;
-        } else {
-            return userInput.value;
-        }
-    }
-    selectedPeriods.addEventListener("click", calculatePeriod);
-}
+//         if(selectedPeriod.value === "daily") {
+//             return userInput.value * 30.41;
+//         } else if(selectedPeriod.value === "weekly") {
+//             return userInput.value * 4.34;
+//         } else if(selectedPeriod.value === "yearly") {
+//             return userInput.value / 12;
+//         } else {
+//             return userInput.value;
+//         }
+//     }
+//     selectedPeriods.addEventListener("click", calculatePeriod);
+// }
 
 
 
 function calculateIncome() {
+    let userIncome = document.getElementsByClassName('income');
+    let totalIncome = 0;
 
+    for(let i of userIncome) {
+        totalIncome += parseFloat(i.value);
+    }
+    return totalIncome;
+}
+
+function calculateExpenses() {
+    let userExpense = document.getElementsByClassName('expense');
+    let totalExpense = 0;
+
+    for(let e of userExpense) {
+        totalExpense += parseFloat(e.value);
+    }
+    return totalExpense;
 }
 
 function calculateResult() {
