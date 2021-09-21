@@ -53,11 +53,17 @@ selectedCurrency.addEventListener("click", function() {
 
 
 function calculateIncome() {
-    let userIncome = document.getElementsByClassName('income');
+    let userIncome = document.getElementsByClassName("income");
     let totalIncome = 0;
 
     for(let i of userIncome) {
-        totalIncome += parseFloat(i.value);
+        
+        if(i.value) {
+            totalIncome += parseFloat(i.value);
+        } else {
+            totalIncome += 0;
+        }
+        
     }
     return totalIncome;
 }
@@ -67,7 +73,13 @@ function calculateExpenses() {
     let totalExpense = 0;
 
     for(let e of userExpense) {
-        totalExpense += parseFloat(e.value);
+        
+        if(e.value) {
+            totalExpense += parseFloat(e.value); 
+        } else {
+            totalExpense += 0;
+        }
+        
     }
     return totalExpense;
 }
