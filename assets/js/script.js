@@ -86,25 +86,28 @@ function calculateExpenses() {
 
 function calculateResult() {
 
+    
     let outcome = parseFloat(calculateIncome() - calculateExpenses());
     let resHtml = 
     `
     <div id="incomeTotal">
-        <h2>Total Income</h2>
-        <p>${selectedCurrency.value}${calculateIncome()}</p>
+        <h3>Total Income</h3>
+        <p>${selectedCurrency.value}${Math.round(parseFloat(calculateIncome())* 100) / 100}</p>
     </div>
     <div id="expenseTotal">
-        <h2>Total Expenditure</h2>
-        <p>${selectedCurrency.value}${calculateExpenses()}</p>
+        <h3>Total Expenditure</h3>
+        <p>${selectedCurrency.value}${Math.round(parseFloat(calculateExpenses())* 100) / 100}</p>
     </div>
     <div id="outcome">
-        <h2>Total Remaining</h2>
-        <p>${selectedCurrency.value}${parseFloat(outcome)}</p>
+        <h3>Total Remaining</h3>
+        <p>${selectedCurrency.value}${Math.round(parseFloat(outcome)* 100) / 100}</p>
     </div>
-    `;    
-// Style the outcomes depending on outcomes
+    <div id="chart">
+    </div>
+    `;
     document.getElementById('results').innerHTML = resHtml;
-
+       
+// Style the outcomes depending on outcomes
     if(calculateIncome() > 0) {
         document.getElementById('incomeTotal').style.color = "#00b200";
     } else {
@@ -117,6 +120,7 @@ function calculateResult() {
         document.getElementById('outcome').style.color = "#ff0000";
     }
 
+// Add chart to results section
 
 }
 
