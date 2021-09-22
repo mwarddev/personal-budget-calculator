@@ -99,10 +99,10 @@ function calculateResult() {
     </div>
     <div id="outcome">
         <h2>Total Remaining</h2>
-        <p>${selectedCurrency.value}${outcome}</p>
+        <p>${selectedCurrency.value}${parseFloat(outcome)}</p>
     </div>
     `;    
-// Style the outcomes depending on values
+// Style the outcomes depending on outcomes
     document.getElementById('results').innerHTML = resHtml;
 
     if(calculateIncome() > 0) {

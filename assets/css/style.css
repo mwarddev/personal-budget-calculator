@@ -182,3 +182,23 @@ footer {
 footer p {
     padding-top: 32px;
 }
+
+/* Results section */
+
+#results {
+    display: block;
+}
+
+#results p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+#results h2 {
+    margin-bottom: 10px;
+}
+
+#incomeTotal, #expenseTotal, #outcome {
+    width: 30%;
+    display: inline-block;
+}
