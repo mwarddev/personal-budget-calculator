@@ -85,6 +85,8 @@ function calculateExpenses() {
 }
 
 function calculateResult() {
+
+    let outcome = parseFloat(calculateIncome() - calculateExpenses());
     let resHtml = 
     `
     <div id="incomeTotal">
@@ -95,13 +97,27 @@ function calculateResult() {
         <h2>Total Expenditure</h2>
         <p>${selectedCurrency.value}${calculateExpenses()}</p>
     </div>
-    <div id="remaining">
+    <div id="outcome">
         <h2>Total Remaining</h2>
-        <p>${selectedCurrency.value}${parseFloat(calculateIncome() - calculateExpenses())}</p>
+        <p>${selectedCurrency.value}${outcome}</p>
     </div>
-    `;
-
+    `;    
+// Style the outcomes depending on values
     document.getElementById('results').innerHTML = resHtml;
+
+    if(calculateIncome() > 0) {
+        document.getElementById('incomeTotal').style.color = "#00b200";
+    } else {
+        document.getElementById('incomeTotal').style.color = "#ff0000";
+    }
+
+    if(outcome > 0) {
+        document.getElementById('outcome').style.color = "#00b200";
+    } else {
+        document.getElementById('outcome').style.color = "#ff0000";
+    }
+
+
 }
 
 function addBox() {
