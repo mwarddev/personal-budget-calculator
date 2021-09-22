@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for(button of buttons) {
         button.addEventListener("click", function() {
-            if(this.getAttribute("type") === "submit") {
+            if(this.getAttribute("type") === "button") {
                 calculateResult();
             } else {
                 addBox();
@@ -85,7 +85,23 @@ function calculateExpenses() {
 }
 
 function calculateResult() {
+    let resHtml = 
+    `
+    <div id="incomeTotal">
+        <h2>Total Income</h2>
+        <p>${selectedCurrency.value}${calculateIncome()}</p>
+    </div>
+    <div id="expenseTotal">
+        <h2>Total Expenditure</h2>
+        <p>${selectedCurrency.value}${calculateExpenses()}</p>
+    </div>
+    <div id="remaining">
+        <h2>Total Remaining</h2>
+        <p>${selectedCurrency.value}${parseFloat(calculateIncome() - calculateExpenses())}</p>
+    </div>
+    `;
 
+    document.getElementById('results').innerHTML = resHtml;
 }
 
 function addBox() {
