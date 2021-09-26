@@ -8,12 +8,16 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             if(this.getAttribute("type") === "button") {
                 calculateResult();
+                drawChart();
             } else {
                 addBox();
             }
         })
     }
 })
+
+// Redraw chart on window resize
+window.onresize = drawChart;
 
 // Add event listener and functionality for the currency select option.
 
@@ -110,6 +114,8 @@ function calculateResult() {
         <h3>Total Remaining</h3>
         <p>${selectedCurrency.value}${Math.round(outcome* 100) / 100}</p>
     </div>
+    <div id="chart" class="chart-style">
+    </div>
     `;
 
     document.getElementById('results').innerHTML = resHtml;
@@ -126,6 +132,18 @@ function calculateResult() {
     } else {
         document.getElementById('outcome').style.color = "#ff0000";
     }
+}
+
+// Load the Visualization API and the corechart package for the pie chart.
+google.charts.load('current', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.charts.setOnLoadCallback(drawChart);
+
+/**
+ * Calculate user input sections and use data to create a pie chart
+ */
+function drawChart() {   
 
     // Calculate sum of section data for pie chart
     let financeAndDebt = document.getElementsByClassName("finances");
@@ -138,7 +156,6 @@ function calculateResult() {
         } else {
             financeAndDebtSum += 0;
         }
-        return financeAndDebtSum;
     }
 
     let savingsSection = document.getElementsByClassName("savings");
@@ -151,7 +168,6 @@ function calculateResult() {
         } else {
             savingsSum += 0;
         }
-        return savingsSum;
     }
 
     let billsSection = document.getElementsByClassName("bills");
@@ -164,7 +180,6 @@ function calculateResult() {
         } else {
             billsSum += 0;
         }
-        return billsSum;
     }
 
     let insuranceSection = document.getElementsByClassName("insurance");
@@ -177,7 +192,6 @@ function calculateResult() {
         } else {
             insuranceSum += 0;
         }
-        return insuranceSum;
     }
 
     let subAndDdSection = document.getElementsByClassName("subscriptions");
@@ -190,7 +204,6 @@ function calculateResult() {
         } else {
             subAndDdSum += 0;
         }
-        return subAndDdSum;
     }
 
     let livingSection = document.getElementsByClassName("living");
@@ -203,7 +216,6 @@ function calculateResult() {
         } else {
             livingSum += 0;
         }
-        return livingSum;
     }
 
     let familySection = document.getElementsByClassName("family");
@@ -216,7 +228,6 @@ function calculateResult() {
         } else {
             familySum += 0;
         }
-        return familySum;
     }
 
     let leisureSection = document.getElementsByClassName("leisure");
@@ -229,9 +240,40 @@ function calculateResult() {
         } else {
             leisureSum += 0;
         }
-        return leisureSum;
-    }
+    }    
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.    
+
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Expense');
+    data.addColumn('number', 'Total');
+    data.addRows([
+        ['Finance & Debt', financeAndDebtSum],
+        ['Savings', savingsSum],
+        ['Household Bills', billsSum],
+        ['Insurance', insuranceSum],
+        ['Subscriptions & Direct Debits', subAndDdSum],
+        ['Living Costs', livingSum],
+        ['Family', familySum],
+        ['Leisure', leisureSum]
+        ]);
+
+    // Set chart options
+    var options = {'title':'Expenditure Overview',
+                    is3D: true,
+                    // 'width':320,
+                    // 'height':400,
+                    // chartArea:{width: '800px', height: 'auto'},
+                    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('chart'));
+    chart.draw(data, options);   
 }
+
 
 
 function addBox() {

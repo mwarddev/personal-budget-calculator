@@ -202,3 +202,10 @@ footer p {
     width: 30%;
     display: inline-block;
 }
+
+.chart-style {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    
+}
