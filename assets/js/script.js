@@ -274,4 +274,17 @@ function drawChart() {
 
 function addBox() {
 
+    let newBoxHtml = `
+    <div class="rem-box">
+        <button class="rem-box-btn" type="button">x</button>
+    <div class="user-input">
+        <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
+        <input type="number" class="expense ${btnAssign}" placeholder="£" step="0.01" min="0">
+        <select class="period" name="period">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+        <option value="yearly">Yearly</option>
+         `;
+    
 }
