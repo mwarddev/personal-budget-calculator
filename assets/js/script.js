@@ -264,17 +264,13 @@ function drawChart() {
     // Set chart options
     var options = {'title':'Expenditure Overview',
                     is3D: true,
-                    // 'width':320,
-                    // 'height':400,
-                    // chartArea:{width: '800px', height: 'auto'},
-                    };
+                    width:'100%',
+                    height:'400'};
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById('chart'));
     chart.draw(data, options);   
 }
-
-
 
 function addBox() {
 
