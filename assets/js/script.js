@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for(button of buttons) {
         button.addEventListener("click", function() {
-            if(this.getAttribute("type") === "button") {
+            if(this.getAttribute('id') === "calc-btn") {
                 calculateResult();
                 drawChart();
             } else {
@@ -274,12 +274,23 @@ function drawChart() {
 
 function addBox() {
 
+    // Assign class name of income or expense
+    let incOrExp = ""
+
+    window.onclick = e => {
+        if(e.target.className.includes('income')) {
+            incOrExp += 'income';
+        } else if(e.target.className.includes('expense')) {
+            incOrExp += 'expense';
+        }
+    }
+
     let newBoxHtml = `
     <div class="rem-box">
         <button class="rem-box-btn" type="button">x</button>
     <div class="user-input">
         <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
-        <input type="number" class="expense ${btnAssign}" placeholder="£" step="0.01" min="0">
+        <input type="number" class="${incOrExp} ${btnAssign}" placeholder="£" step="0.01" min="0">
         <select class="period" name="period">
         <option value="daily">Daily</option>
         <option value="weekly">Weekly</option>
