@@ -275,15 +275,75 @@ function drawChart() {
 function addBox() {
 
     // Assign class name of income or expense
+    // Target add-box button to a specific section
     let incOrExp = ""
+    let btnAssign = ""
 
-    window.onclick = e => {
-        if(e.target.className.includes('income')) {
-            incOrExp += 'income';
-        } else if(e.target.className.includes('expense')) {
-            incOrExp += 'expense';
+    window.onclick = e => {        
+
+        if(e.target.className.includes('expense')) {
+            if(e.target.className.includes('finances')) {
+                btnAssign = 'finances-btn';
+            } else if(e.target.className.includes('savings')) {
+                btnAssign = 'savings-btn';
+            } else if(e.target.className.includes('bills')) {
+                btnAssign = 'bills-btn';
+            } else if(e.target.className.includes('insurance')) {
+                btnAssign = 'insurance-btn';
+            } else if(e.target.className.includes('subscriptions')) {
+                btnAssign = 'subscriptions-btn';
+            } else if(e.target.className.includes('transport')) {
+                btnAssign = 'transport-btn';
+            } else if(e.target.className.includes('living')) {
+                btnAssign = 'living-btn';
+            } else if(e.target.className.includes('family')) {
+                btnAssign = 'family-btn';
+            } else if(e.target.className.includes('leisure')) {
+                btnAssign = 'leisure-btn';
+            }
+            incOrExp = 'expense';
+        } else if(e.target.className.includes('income')) {
+            incOrExp = 'income';
+            btnAssign = 'income-btn';
         }
-    }
+    console.log(incOrExp);
+    console.log(btnAssign);
+    // switch(btnClass) {
+    //     case 'finances':
+    //         btnAssign += "finances-btn";
+    //         break;
+    //     case 'savings':
+    //         btnAssign += "savings-btn";
+    //         break;
+    //     case 'bills':
+    //         btnAssign += "bills-btn";
+    //         break;
+    //     case 'insurance':
+    //         btnAssign += "insurance-btn";
+    //     case 'subscriptions':
+    //         btnAssign += "subscriptions-btn";
+    //         break;
+    //     case 'transport':
+    //         btnAssign += "transport-btn";
+    //         break;
+    //     case 'living':
+    //         btnAssign += "living-btn";
+    //         break;
+    //     case 'family':
+    //         btnAssign += "family-btn";
+    //         break;
+    //     case 'leisure':
+    //         btnAssign += "leisure-btn";
+    //     default:
+    //         btnAssign += "income-btn";
+    // }
+
+    // const addButtons = Array.from(document.getElementsByClassName("income-btn expense-btn"));
+    // addButtons.forEach(button => {
+    //     button.addEventListener('click',() => {
+    //         console.log(addButtons);
+    //     })
+    // })
 
     let newBoxHtml = `
     <div class="rem-box">
@@ -294,8 +354,10 @@ function addBox() {
         <select class="period" name="period">
         <option value="daily">Daily</option>
         <option value="weekly">Weekly</option>
-        <option value="monthly">Monthly</option>
+        <option value="monthly" selected>Monthly</option>
         <option value="yearly">Yearly</option>
          `;
-    
+    let addBtnHtml = document.getElementById(btnAssign);
+    addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);
+    }
 }

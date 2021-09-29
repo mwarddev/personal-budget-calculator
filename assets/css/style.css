@@ -159,6 +159,7 @@ details[open] .drop::after {
     border: none;
     background-color: unset;
     display: inline;
+    cursor: pointer;
 }
 
 .add-box p {
