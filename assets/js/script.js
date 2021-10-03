@@ -9,9 +9,27 @@ document.addEventListener("DOMContentLoaded", function() {
             if(this.getAttribute('id') === "calc-btn") {
                 calculateResult();
                 drawChart();
-            } else {
-                addBox();
-            }
+            } else if(this.getAttribute('id') === "finances") {   
+                addBox('expense', 'finances-btn');
+            } else if(this.getAttribute('id') === "savings") {
+                addBox('expense', 'savings-btn');
+            } else if(this.getAttribute('id') === "bills") {
+                addBox('expense', 'bills-btn');
+            } else if(this.getAttribute('id') === "insurance") {
+                addBox('expense', 'insurance-btn');
+            } else if(this.getAttribute('id') === "subscriptions") {
+                addBox('expense', 'subscriptions-btn');
+            } else if(this.getAttribute('id') === "transport") {
+                addBox('expense', 'transport-btn');
+            } else if(this.getAttribute('id') === "living") {
+                addBox('expense', 'living-btn');
+            } else if(this.getAttribute('id') === "family") {
+                addBox('expense', 'family-btn');
+            } else if(this.getAttribute('id') === "leisure") {
+                addBox('expense', 'leisure-btn');
+            } else if(this.getAttribute('id') === "income") {
+                addBox('income', 'income-btn');
+            }    
         })
     }
 })
@@ -272,43 +290,9 @@ function drawChart() {
     chart.draw(data, options);   
 }
 
-function addBox() {
+function addBox(incOrExp, btnAssign) {
 
-    let incOrExp = ""
-    let btnAssign = ""    
-                  
-    const addButtons = Array.from(document.getElementsByClassName("add-box-btn"));
-    addButtons.forEach(button => {
-        button.addEventListener('click', () => {    
-
-            if(button.className.includes('expense')) {
-                if(button.className.includes('finances')) {
-                    btnAssign = 'finances-btn';
-                } else if(button.className.includes('savings')) {
-                    btnAssign = 'savings-btn';
-                } else if(button.className.includes('bills')) {
-                    btnAssign = 'bills-btn';
-                } else if(button.className.includes('insurance')) {
-                    btnAssign = 'insurance-btn';
-                } else if(button.className.includes('subscriptions')) {
-                    btnAssign = 'subscriptions-btn';
-                } else if(button.className.includes('transport')) {
-                    btnAssign = 'transport-btn';
-                } else if(button.target.className.includes('living')) {
-                    btnAssign = 'living-btn';
-                } else if(button.target.className.includes('family')) {
-                    btnAssign = 'family-btn';
-                } else if(button.target.className.includes('leisure')) {
-                    btnAssign = 'leisure-btn';
-                }
-                incOrExp = 'expense';
-            } else if(button.className.includes('income')) {
-                incOrExp = 'income';
-                btnAssign = 'income-btn';
-            }
-        })                    
-    })    
-
+   
     let newBoxHtml = `
     <div class="rem-box">
         <button class="rem-box-btn" type="button">x</button>
