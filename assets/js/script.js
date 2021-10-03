@@ -278,57 +278,52 @@ function addBox() {
     let btnAssign = ""    
                   
     const addButtons = Array.from(document.getElementsByClassName("add-box-btn"));
-        addButtons.forEach(button => {
-            
-            button.addEventListener('click', buttonClicked)           
-                    
-        })
-        
-    function buttonClicked(evt) {
+    addButtons.forEach(button => {
+        button.addEventListener('click', () => {    
 
-        if(evt.target.className.includes('expense')) {
-            if(evt.target.className.includes('finances')) {
-                btnAssign = 'finances-btn';
-            } else if(evt.target.className.includes('savings')) {
-                btnAssign = 'savings-btn';
-            } else if(evt.target.className.includes('bills')) {
-                btnAssign = 'bills-btn';
-            } else if(evt.target.className.includes('insurance')) {
-                btnAssign = 'insurance-btn';
-            } else if(evt.target.className.includes('subscriptions')) {
-                btnAssign = 'subscriptions-btn';
-            } else if(evt.target.className.includes('transport')) {
-                btnAssign = 'transport-btn';
-            } else if(evt.target.className.includes('living')) {
-                btnAssign = 'living-btn';
-            } else if(evt.target.className.includes('family')) {
-                btnAssign = 'family-btn';
-            } else if(evt.target.className.includes('leisure')) {
-                btnAssign = 'leisure-btn';
+            if(button.className.includes('expense')) {
+                if(button.className.includes('finances')) {
+                    btnAssign = 'finances-btn';
+                } else if(button.className.includes('savings')) {
+                    btnAssign = 'savings-btn';
+                } else if(button.className.includes('bills')) {
+                    btnAssign = 'bills-btn';
+                } else if(button.className.includes('insurance')) {
+                    btnAssign = 'insurance-btn';
+                } else if(button.className.includes('subscriptions')) {
+                    btnAssign = 'subscriptions-btn';
+                } else if(button.className.includes('transport')) {
+                    btnAssign = 'transport-btn';
+                } else if(button.target.className.includes('living')) {
+                    btnAssign = 'living-btn';
+                } else if(button.target.className.includes('family')) {
+                    btnAssign = 'family-btn';
+                } else if(button.target.className.includes('leisure')) {
+                    btnAssign = 'leisure-btn';
+                }
+                incOrExp = 'expense';
+            } else if(button.className.includes('income')) {
+                incOrExp = 'income';
+                btnAssign = 'income-btn';
             }
-            incOrExp = 'expense';
-        } else if(evt.target.className.includes('income')) {
-            incOrExp = 'income';
-            btnAssign = 'income-btn';
-        }
+        })                    
+    })    
 
-        let newBoxHtml = `
-        <div class="rem-box">
-            <button class="rem-box-btn" type="button">x</button>
-        </div>
-        <div class="user-input">
-        <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
-        <input type="number" class="${incOrExp} ${btnAssign}" placeholder="£" step="0.01" min="0">
-        <select class="period" name="period">
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly" selected>Monthly</option>
-            <option value="yearly">Yearly</option>
-        </div>
-        `;       
+    let newBoxHtml = `
+    <div class="rem-box">
+        <button class="rem-box-btn" type="button">x</button>
+    </div>
+    <div class="user-input">
+    <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
+    <input type="number" class="${incOrExp} ${btnAssign}" placeholder="£" step="0.01" min="0">
+    <select class="period" name="period">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly" selected>Monthly</option>
+        <option value="yearly">Yearly</option>
+    </div>
+    `;       
 
-        let addBtnHtml = document.getElementById(btnAssign);
-        addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);
-
-    }    
+    let addBtnHtml = document.getElementById(btnAssign);
+    addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);        
 }
