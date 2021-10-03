@@ -143,8 +143,9 @@ details[open] .drop::after {
 
 .user-input select {
     padding: 5px;
-
 }
+
+/* Add box button */
 
 .add-box {
     width: 60%;
@@ -164,6 +165,24 @@ details[open] .drop::after {
 
 .add-box p {
     display: inline;
+}
+
+/* remove box button */
+
+.rem-box {
+    width: 60%;
+    margin: auto;
+    text-align: right;
+    display: block;
+}
+
+.rem-box-btn {
+    font-size: 2rem;
+    color: #ff0000;
+    border: none;
+    background-color: unset;
+    display: inline;
+    cursor: pointer;
 }
 
 /* Calculate button */

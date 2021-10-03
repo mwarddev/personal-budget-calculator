@@ -315,6 +315,7 @@ function addBox() {
         let newBoxHtml = `
         <div class="rem-box">
             <button class="rem-box-btn" type="button">x</button>
+        </div>
         <div class="user-input">
         <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
         <input type="number" class="${incOrExp} ${btnAssign}" placeholder="£" step="0.01" min="0">
@@ -323,7 +324,8 @@ function addBox() {
             <option value="weekly">Weekly</option>
             <option value="monthly" selected>Monthly</option>
             <option value="yearly">Yearly</option>
-            `;       
+        </div>
+        `;       
 
         let addBtnHtml = document.getElementById(btnAssign);
         addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);
