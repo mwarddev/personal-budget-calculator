@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 addBox('expense', 'leisure-btn');
             } else if(this.getAttribute('id') === "income") {
                 addBox('income', 'income-btn');
-            }    
+            }
         })
     }
 })
@@ -292,22 +292,49 @@ function drawChart() {
 
 function addBox(incOrExp, btnAssign) {
 
-   
     let newBoxHtml = `
-    <div class="rem-box">
-        <button class="rem-box-btn" type="button">x</button>
-    </div>
-    <div class="user-input">
-    <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
-    <input type="number" class="${incOrExp} ${btnAssign}" placeholder="£" step="0.01" min="0">
-    <select class="period" name="period">
-        <option value="daily">Daily</option>
-        <option value="weekly">Weekly</option>
-        <option value="monthly" selected>Monthly</option>
-        <option value="yearly">Yearly</option>
+    <div class="newBox">
+        <div class="rem-box">
+            <button class="rem-box-btn" type="button">x</button>
+        </div>
+        <div class="user-input">
+        <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
+        <input type="number" class="${incOrExp} ${btnAssign}" placeholder="£" step="0.01" min="0">
+        <select class="period" name="period">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly" selected>Monthly</option>
+            <option value="yearly">Yearly</option>
+        </div>
     </div>
     `;       
 
     let addBtnHtml = document.getElementById(btnAssign);
-    addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);        
+    addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);
+    
+    let remButton = document.getElementsByClassName('rem-box-btn');
+    let boxId = document.getElementsByClassName('newBox');
+    let counter = 0;
+
+    remButton.addEventListener("click", function() {
+        
+        for(box of boxId) {
+                
+            boxId.setAttribute('class', counter);
+            remButton.setAttribute('class', counter);
+            if(this.getAttribute('class') === boxId.getAttribute('class')) {
+                removeBox(this.getAttribute('class'));
+            }  
+            counter++; 
+            console.log(counter);                      
+        }            
+    });
+    
+}
+
+function removeBox(index) {
+    console.log(index);
+    let removable = document.getElementsByclassName(index);
+    removable.remove();
+    
 }
