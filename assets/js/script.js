@@ -312,29 +312,11 @@ function addBox(incOrExp, btnAssign) {
     let addBtnHtml = document.getElementById(btnAssign);
     addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);
     
-    let remButton = document.getElementsByClassName('rem-box-btn');
-    let boxId = document.getElementsByClassName('newBox');
-    let counter = 0;
+    let remButton = document.getElementsByClassName('rem-box-btn')
 
-    remButton.addEventListener("click", function() {
-        
-        for(box of boxId) {
-                
-            boxId.setAttribute('class', counter);
-            remButton.setAttribute('class', counter);
-            if(this.getAttribute('class') === boxId.getAttribute('class')) {
-                removeBox(this.getAttribute('class'));
-            }  
-            counter++; 
-            console.log(counter);                      
-        }            
-    });
-    
-}
-
-function removeBox(index) {
-    console.log(index);
-    let removable = document.getElementsByclassName(index);
-    removable.remove();
-    
+    for(rem of remButton) {
+        rem.addEventListener("click", function(r) {
+            r.target.closest('.newBox').remove();
+        });                  
+    }    
 }
