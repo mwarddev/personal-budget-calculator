@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 addBox('expense', 'leisure-btn');
             } else if(this.getAttribute('id') === "income") {
                 addBox('income', 'income-btn');
+            } else if(this.getAttribute('id') === "reset-btn") {
+                window.location.reload();
             }
         })
     }
@@ -290,8 +292,13 @@ function drawChart() {
     chart.draw(data, options);   
 }
 
+
+/**
+ * Add and remove input fields as and when required
+ */
 function addBox(incOrExp, btnAssign) {
 
+    // template literal for new input fields + remove button
     let newBoxHtml = `
     <div class="newBox">
         <div class="rem-box">
@@ -308,10 +315,12 @@ function addBox(incOrExp, btnAssign) {
         </div>
     </div>
     `;       
-
+    
+    // Add template literal to specific section with relevant class names
     let addBtnHtml = document.getElementById(btnAssign);
     addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);
     
+    // Remove nearest new fields when remove button clicked
     let remButton = document.getElementsByClassName('rem-box-btn')
 
     for(rem of remButton) {
