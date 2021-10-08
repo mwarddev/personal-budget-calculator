@@ -50,83 +50,30 @@ selectedCurrency.addEventListener("click", function() {
     }
 })
 
-/**
- * Calculates the input depending on the period selected
- */
-// function calculatePeriod() {
-    
-//     let selectedPeriods = document.getElementsByClassName("period");
 
-//     for(let selectedPeriod of selectedPeriods) {
-//         selectedPeriod.addEventListener("click", function(select) {
-//             if(select.target.value === "daily") {
-//                 return select.target.closest('input').value * 30.41;
-//             } else if(select.target.value === "weekly") {
-//                 return select.target.closest('input').value * 4.34;
-//             } else if(select.target.value === "yearly") {
-//                 return select.target.closest('input').value / 12;
-//             } else {
-//                 return select.target.closest('input').value;
-//             }
-//         });    
-//     }
-    
-// }
-
-
-/**
- * Calculates the total income
- */
-// function calculateIncome() {
-//     let userIncome = document.getElementsByClassName("income");
-//     let totalIncome = 0;
-
-//     for(let i of userIncome) {
-        
-//         if(i.value) {
-//             totalIncome += parseFloat(i.value);
-//         } else {
-//             totalIncome += 0;
-//         }        
-//     }
-//     return totalIncome;
-// }
-
-/**
- * calculates the total expenditure
- */
-// function calculateExpenses() {
-//     let userExpense = document.getElementsByClassName('expense');
-//     let totalExpense = 0;
-
-//     for(let e of userExpense) {
-        
-//         if(e.value) {
-//             totalExpense += parseFloat(e.value); 
-//         } else {
-//             totalExpense += 0;
-//         }        
-//     }
-//     return totalExpense;
-// }
 
 /**
  * Calculates the result of total income minus total expenditure and outputs data to the DOM
  */
 function calculateResult() {
+    // Calculate drop down adjustments for user input.
+    let selectedPeriod = document.getElementsByClassName("period");
+    let userInput = document.getElementsByClassName('user-input');
 
-    // let selectedPeriods = document.getElementsByClassName("period");
+    for(let i = 0; i < selectedPeriod.length; i++) {
+        
+        if(selectedPeriod[i].selectedIndex == [0]) {
+            userInput[i+1].value *= 30.41;
+        } else if(selectedPeriod[i].selectedIndex == [1]) {
+            userInput[i+1].value *= 4.34;
+        } else if(selectedPeriod[i].selectedIndex == [3]) {
+            userInput[i+1].value /= 12;
+        } else {
+            userInput[i+1].value;
+        }
+    }
 
-    // for(let selectedPeriod of selectedPeriods) {
-    //     if(selectedPeriod.selectedIndex === 0) {
-    //         selectedPeriod.closest('input').value * 30.41;
-    //     } else if(selectedPeriod.selectedIndex === 1) {
-    //         selectedPeriod.closest('input').value * 4.34;
-    //     } else if(selectedPeriod.selectedIndex === 2) {
-    //         selectedPeriod.closest('input').value / 12;
-    //     }
-    // }
-
+    // Calculate total income
     let userIncome = document.getElementsByClassName("income");
     let totalIncome = 0;
 
@@ -138,7 +85,7 @@ function calculateResult() {
             totalIncome += 0;
         }        
     }
-
+    // Calculate total expenses
     let userExpense = document.getElementsByClassName('expense');
     let totalExpense = 0;
 
@@ -150,10 +97,8 @@ function calculateResult() {
             totalExpense += 0;
         }        
     }
-
-
     
-    // let outcome = calculateIncome() - calculateExpenses();
+    // Output conditional results to the DOM
     let outcome = totalIncome - totalExpense;
     let resHtml = 
     `
