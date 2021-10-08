@@ -58,18 +58,18 @@ selectedCurrency.addEventListener("click", function() {
 function calculateResult() {
     // Calculate drop down adjustments for user input.
     let selectedPeriod = document.getElementsByClassName("period");
-    let userInput = document.getElementsByClassName('user-input');
-
+    let userInput = document.getElementsByClassName('user-value');
+    
     for(let i = 0; i < selectedPeriod.length; i++) {
-        
+
         if(selectedPeriod[i].selectedIndex == [0]) {
-            userInput[i+1].value *= 30.41;
+            userInput[i].value *= 30.41;
         } else if(selectedPeriod[i].selectedIndex == [1]) {
-            userInput[i+1].value *= 4.34;
+            userInput[i].value *= 4.34;
         } else if(selectedPeriod[i].selectedIndex == [3]) {
-            userInput[i+1].value /= 12;
+            userInput[i].value /= 12;
         } else {
-            userInput[i+1].value;
+            userInput[i].value;
         }
     }
 
