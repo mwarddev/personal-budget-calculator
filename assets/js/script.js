@@ -55,30 +55,78 @@ selectedCurrency.addEventListener("click", function() {
  */
 // function calculatePeriod() {
     
-//     let selectedPeriods = document.getElementsByClassName("period");    
-
-//     let userInput = document.getElementsByTagName("input")
+//     let selectedPeriods = document.getElementsByClassName("period");
 
 //     for(let selectedPeriod of selectedPeriods) {
-        
-//         if(selectedPeriod.value === "daily") {
-//             return userInput.value * 30.41;
-//         } else if(selectedPeriod.value === "weekly") {
-//             return userInput.value * 4.34;
-//         } else if(selectedPeriod.value === "yearly") {
-//             return userInput.value / 12;
-//         } else {
-//             return userInput.value;
-//         }
+//         selectedPeriod.addEventListener("click", function(select) {
+//             if(select.target.value === "daily") {
+//                 return select.target.closest('input').value * 30.41;
+//             } else if(select.target.value === "weekly") {
+//                 return select.target.closest('input').value * 4.34;
+//             } else if(select.target.value === "yearly") {
+//                 return select.target.closest('input').value / 12;
+//             } else {
+//                 return select.target.closest('input').value;
+//             }
+//         });    
 //     }
-//     selectedPeriods.addEventListener("click", calculatePeriod);
+    
 // }
 
 
 /**
  * Calculates the total income
  */
-function calculateIncome() {
+// function calculateIncome() {
+//     let userIncome = document.getElementsByClassName("income");
+//     let totalIncome = 0;
+
+//     for(let i of userIncome) {
+        
+//         if(i.value) {
+//             totalIncome += parseFloat(i.value);
+//         } else {
+//             totalIncome += 0;
+//         }        
+//     }
+//     return totalIncome;
+// }
+
+/**
+ * calculates the total expenditure
+ */
+// function calculateExpenses() {
+//     let userExpense = document.getElementsByClassName('expense');
+//     let totalExpense = 0;
+
+//     for(let e of userExpense) {
+        
+//         if(e.value) {
+//             totalExpense += parseFloat(e.value); 
+//         } else {
+//             totalExpense += 0;
+//         }        
+//     }
+//     return totalExpense;
+// }
+
+/**
+ * Calculates the result of total income minus total expenditure and outputs data to the DOM
+ */
+function calculateResult() {
+
+    // let selectedPeriods = document.getElementsByClassName("period");
+
+    // for(let selectedPeriod of selectedPeriods) {
+    //     if(selectedPeriod.selectedIndex === 0) {
+    //         selectedPeriod.closest('input').value * 30.41;
+    //     } else if(selectedPeriod.selectedIndex === 1) {
+    //         selectedPeriod.closest('input').value * 4.34;
+    //     } else if(selectedPeriod.selectedIndex === 2) {
+    //         selectedPeriod.closest('input').value / 12;
+    //     }
+    // }
+
     let userIncome = document.getElementsByClassName("income");
     let totalIncome = 0;
 
@@ -88,16 +136,9 @@ function calculateIncome() {
             totalIncome += parseFloat(i.value);
         } else {
             totalIncome += 0;
-        }
-        
+        }        
     }
-    return totalIncome;
-}
 
-/**
- * calculates the total expenditure
- */
-function calculateExpenses() {
     let userExpense = document.getElementsByClassName('expense');
     let totalExpense = 0;
 
@@ -107,28 +148,22 @@ function calculateExpenses() {
             totalExpense += parseFloat(e.value); 
         } else {
             totalExpense += 0;
-        }
-        
+        }        
     }
-    return totalExpense;
-}
 
-/**
- * Calculates the result of total income minus total expenditure and outputs data to the DOM
- */
-function calculateResult() {
 
     
-    let outcome = calculateIncome() - calculateExpenses();
+    // let outcome = calculateIncome() - calculateExpenses();
+    let outcome = totalIncome - totalExpense;
     let resHtml = 
     `
     <div id="incomeTotal">
         <h3>Total Income</h3>
-        <p>${selectedCurrency.value}${Math.round(calculateIncome()* 100) / 100}</p>
+        <p>${selectedCurrency.value}${Math.round(totalIncome* 100) / 100}</p>
     </div>
     <div id="expenseTotal">
         <h3>Total Expenditure</h3>
-        <p>${selectedCurrency.value}${Math.round(calculateExpenses()* 100) / 100}</p>
+        <p>${selectedCurrency.value}${Math.round(totalExpense* 100) / 100}</p>
     </div>
     <div id="outcome">
         <h3>Total Remaining</h3>
@@ -141,7 +176,7 @@ function calculateResult() {
     document.getElementById('results').innerHTML = resHtml;
        
     // Style the outcomes using conditional statements
-    if(calculateIncome() > 0) {
+    if(totalIncome > 0) {
         document.getElementById('incomeTotal').style.color = "#00b200";
     } else {
         document.getElementById('incomeTotal').style.color = "#ff0000";
@@ -152,6 +187,8 @@ function calculateResult() {
     } else {
         document.getElementById('outcome').style.color = "#ff0000";
     }
+
+    document.getElementById('results').style.display = "block";
 }
 
 // Load the Visualization API and the corechart package for the pie chart.
@@ -306,7 +343,7 @@ function addBox(incOrExp, btnAssign) {
         </div>
         <div class="user-input">
         <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
-        <input type="number" class="${incOrExp} ${btnAssign}" placeholder="£" step="0.01" min="0">
+        <input type="number" class="${incOrExp} ${btnAssign}" value="" placeholder="£" step="0.01" min="0">
         <select class="period" name="period">
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>

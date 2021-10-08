@@ -206,7 +206,7 @@ footer p {
 /* Results section */
 
 #results {
-    display: block;
+    display: none;
 }
 
 #results p {
