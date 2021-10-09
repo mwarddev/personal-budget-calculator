@@ -135,7 +135,14 @@ function calculateResult() {
         document.getElementById('outcome').style.color = "#ff0000";
     }
     
-    document.getElementById('results').style.display = "block";
+    document.getElementById('results').style.display = 'block';
+    if(totalExpense === 0) {
+        document.getElementById('chart').style.display = 'none';
+    } else {
+        document.getElementById('chart').style.display = 'block';
+    }
+
+    // Reset drop down buttons back to Monthly after calculation
     for(let selected of selectedPeriod) {
         selected.selectedIndex = '2';
     }
