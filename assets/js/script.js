@@ -2,6 +2,7 @@
 // Add event listeners to all buttons
 
 document.addEventListener("DOMContentLoaded", function() {
+    
     let buttons = document.getElementsByTagName("button");
 
     for(button of buttons) {
@@ -36,6 +37,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 })
 
+// call dropScroll function
+dropScroll();
+
+// Return page to top on reload
+window.onbeforeunload = () => {
+    window.scrollTo(0, 0);
+}
+
 // Redraw chart on window resize
 window.onresize = drawChart;
 
@@ -50,6 +59,31 @@ selectedCurrency.addEventListener("click", function() {
     }
 })
 
+/**
+ * Gets details elements and scrolls the page by 360px when element is open 
+ * and reduces px count by 360 when closed
+ */
+function dropScroll(){
+    
+    let dropDown = document.getElementsByClassName('drop-down');
+    let count = 0;
+
+    for(let drop of dropDown) {
+        drop.addEventListener('toggle', function() {
+            
+            if(drop.open) {
+                count += 360;
+                window.scroll({
+                    top: count,
+                    behavior: 'smooth'
+                });
+            } else {
+                count -= 360;
+            }
+        })
+    }
+}
+
 
 
 /**
@@ -62,7 +96,7 @@ function calculateResult() {
     let userInput = document.getElementsByClassName('user-value');
     
     for(let i = 0; i < selectedPeriod.length; i++) {
-        console.log('Input: ' + userInput[i].value + ' Drop down:' + selectedPeriod[i] + ' Drop down index: ' + selectedPeriod[i].selctedIndex);
+        
         if(selectedPeriod[i].selectedIndex == [0]) {
             userInput[i].value *= 30.41;
         } else if(selectedPeriod[i].selectedIndex == [1]) {
@@ -72,7 +106,6 @@ function calculateResult() {
         } else {
             userInput[i].value;
         }
-        console.log('Input: ' + userInput[i].value + ' Drop down:' + selectedPeriod[i] + ' Drop down index: ' + selectedPeriod[i].selctedIndex);
     }
 
     // Calculate total income
