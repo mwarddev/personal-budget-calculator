@@ -56,12 +56,13 @@ selectedCurrency.addEventListener("click", function() {
  * Calculates the result of total income minus total expenditure and outputs data to the DOM
  */
 function calculateResult() {
+
     // Calculate drop down adjustments for user input.
     let selectedPeriod = document.getElementsByClassName("period");
     let userInput = document.getElementsByClassName('user-value');
     
     for(let i = 0; i < selectedPeriod.length; i++) {
-
+        console.log('Input: ' + userInput[i].value + ' Drop down:' + selectedPeriod[i] + ' Drop down index: ' + selectedPeriod[i].selctedIndex);
         if(selectedPeriod[i].selectedIndex == [0]) {
             userInput[i].value *= 30.41;
         } else if(selectedPeriod[i].selectedIndex == [1]) {
@@ -71,6 +72,7 @@ function calculateResult() {
         } else {
             userInput[i].value;
         }
+        console.log('Input: ' + userInput[i].value + ' Drop down:' + selectedPeriod[i] + ' Drop down index: ' + selectedPeriod[i].selctedIndex);
     }
 
     // Calculate total income
@@ -132,8 +134,11 @@ function calculateResult() {
     } else {
         document.getElementById('outcome').style.color = "#ff0000";
     }
-
+    
     document.getElementById('results').style.display = "block";
+    for(let selected of selectedPeriod) {
+        selected.selectedIndex = '2';
+    }
 }
 
 // Load the Visualization API and the corechart package for the pie chart.
@@ -288,7 +293,7 @@ function addBox(incOrExp, btnAssign) {
         </div>
         <div class="user-input">
         <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
-        <input type="number" class="${incOrExp} ${btnAssign}" value="" placeholder="£" step="0.01" min="0">
+        <input type="number" class="${incOrExp} ${btnAssign} user-value" value="" placeholder="£" step="0.01" min="0">
         <select class="period" name="period">
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
