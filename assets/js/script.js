@@ -296,7 +296,7 @@ function addBox(incOrExp, btnAssign) {
     let newBoxHtml = `
     <div class="newBox">
         <div class="rem-box">
-            <button class="rem-box-btn" type="button">x</button>
+            <button class="rem-box-btn" type="button">&#x2716;</button>
         </div>
         <div class="user-input">
         <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
