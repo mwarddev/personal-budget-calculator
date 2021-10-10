@@ -1,12 +1,12 @@
 // Wait for DOM to finish loading before running JS
 // Add event listeners to all buttons
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
     
     let buttons = document.getElementsByTagName("button");
 
     for(button of buttons) {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", function() {
             if(this.getAttribute('id') === "calc-btn") {
                 calculateResult();
                 drawChart();
@@ -52,7 +52,7 @@ window.onresize = drawChart;
 
 let selectedCurrency = document.getElementById("currency");
 
-selectedCurrency.addEventListener('click', () => {        
+selectedCurrency.addEventListener('click', function() {        
     let currencyPlaceholders = document.getElementsByTagName("input");
     for (currencyPlaceholder of currencyPlaceholders) {
         currencyPlaceholder.placeholder = selectedCurrency.value;
@@ -67,7 +67,7 @@ function dropScroll(){
     let dropDown = document.getElementsByClassName('drop-down');
 
     for(let drop of dropDown) {
-        drop.addEventListener('toggle', () => {
+        drop.addEventListener('toggle', function() {
             
             if(drop.open) {
                 drop.scrollIntoView({
@@ -349,7 +349,7 @@ function addBox(incOrExp, btnAssign) {
     let remButton = document.getElementsByClassName('rem-box-btn')
 
     for(rem of remButton) {
-        rem.addEventListener("click", (r) => {
+        rem.addEventListener("click", function(r) {
             r.target.closest('.newBox').remove();
         });                  
     }    
