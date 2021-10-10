@@ -119,7 +119,7 @@ summary h2 {
     border: none;
 }
 
-.drop::after {
+.drop::-webkit-details-marker {
     content: '\25BC';
     font-size: 1.2rem;
     color: grey;
@@ -127,7 +127,7 @@ summary h2 {
     padding: 7px 20px 0 0;
 }
 
-details[open] .drop::after {
+details[open] .drop::-webkit-details-marker {
     content: '\25B2';
     font-size: 1.2rem;
     color: grey;
