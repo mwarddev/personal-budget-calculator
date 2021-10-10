@@ -146,8 +146,6 @@ function calculateResult() {
         <h3>Total Monthly Remaining</h3>
         <p>${selectedCurrency.value}${Math.round(outcome* 100) / 100}</p>
     </div>
-    <div id='chart'>
-    </div>
     `;
 
     document.getElementById('results').innerHTML = resHtml;
@@ -313,7 +311,7 @@ function drawChart() {
                     height:'400'};
 
     // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.PieChart(document.getElementById('chart'));
+    var chart = new google.visualization.PieChart(document.getElementById("chart"));
     chart.draw(data, options);   
 }
 

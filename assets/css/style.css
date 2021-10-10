@@ -284,7 +284,8 @@ footer p {
 #chart {
     width: 40%;
     height: auto;
-    margin: 0 auto;    
+    margin: 0 auto;
+    display: none;    
 }
 
 /* Media queries */
