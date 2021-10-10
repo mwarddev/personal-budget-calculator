@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if(this.getAttribute('id') === 'reset-btn') {
                 window.location.reload();
             }
-        })
+        });
     }
-})
+});
 
 // call dropScroll function
 dropScroll();
@@ -43,7 +43,7 @@ dropScroll();
 // Return page to top on reload
 window.onbeforeunload = () => {
     window.scrollTo(0, 0);
-}
+};
 
 // Redraw chart on window resize
 window.onresize = drawChart;
@@ -77,7 +77,7 @@ function dropScroll(){
                     behavior: 'smooth'
                 });
             }
-        })
+        });
     }
 }
 
@@ -343,7 +343,7 @@ function addBox(incOrExp, btnAssign) {
     addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);
     
     // Remove nearest new fields when remove button clicked
-    let remButton = document.getElementsByClassName('rem-box-btn')
+    let remButton = document.getElementsByClassName('rem-box-btn');
 
     for(rem of remButton) {
         rem.addEventListener('click', function(r) {

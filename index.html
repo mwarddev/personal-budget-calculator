@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/pbc_icon.ico"/>    
     <link rel="stylesheet" href="assets/css/style.css">
     <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
     <header>
@@ -21,7 +21,7 @@
     </header>
 
     <!-- How to use and currency selector section -->
-    <section>
+    <div>
         <div class="container">
             <details id="how-to-use" >
                 <summary aria-label="Click for a summary of how to use the calculator.">
@@ -40,7 +40,7 @@
                 <option value="$">$ USD</option>
             </select>
         </div>
-    </section>
+    </div>
 
     <!-- Form Section -->
     <section>
@@ -147,7 +147,7 @@
                     </div>
                     <div class="user-input">
                         <label for="child-sup">Child Support</label>
-                        <input type="number" id="child-sup" class="expense finances user-value" name="child-sup"   A placeholder="£" step="0.01" min="0">
+                        <input type="number" id="child-sup" class="expense finances user-value" name="child-sup" placeholder="£" step="0.01" min="0">
                         <select name="period" class="period">
                             <option value="daily">Daily</option>
                             <option value="weekly">Weekly</option>
@@ -221,7 +221,7 @@
                     </div>
                     <div class="user-input">
                         <label for="electricity">Electricity</label>
-                        <input type="number" id="electricty" class="expense bills user-value" name="electricity" placeholder="£" step="0.01" min="0">
+                        <input type="number" id="electricity" class="expense bills user-value" name="electricity" placeholder="£" step="0.01" min="0">
                         <select name="period" class="period">
                             <option value="daily">Daily</option>
                             <option value="weekly">Weekly</option>
@@ -565,13 +565,13 @@
     </section>
 
     <!-- Results section -->
-    <section>
+    <div>
         <div id="results">
         </div>
         <!-- Pie chart container -->
         <div id="chart">
         </div>
-    </section>
+    </div>
     <footer>
         <p>Copyright<span> &#xa9;</span> 2021 Martin Ward</p>
     </footer>    
