@@ -1,36 +1,36 @@
 // Wait for DOM to finish loading before running JS
 // Add event listeners to all buttons
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
     
     let buttons = document.getElementsByTagName("button");
 
     for(button of buttons) {
-        button.addEventListener("click", function() {
-            if(this.getAttribute('id') === "calc-btn") {
+        button.addEventListener('click', function() {
+            if(this.getAttribute('id') === 'calc-btn') {
                 calculateResult();
                 drawChart();
-            } else if(this.getAttribute('id') === "finances") {   
+            } else if(this.getAttribute('id') === 'finances') {   
                 addBox('expense', 'finances-btn');
-            } else if(this.getAttribute('id') === "savings") {
+            } else if(this.getAttribute('id') === 'savings') {
                 addBox('expense', 'savings-btn');
-            } else if(this.getAttribute('id') === "bills") {
+            } else if(this.getAttribute('id') === 'bills') {
                 addBox('expense', 'bills-btn');
-            } else if(this.getAttribute('id') === "insurance") {
+            } else if(this.getAttribute('id') === 'insurance') {
                 addBox('expense', 'insurance-btn');
-            } else if(this.getAttribute('id') === "subscriptions") {
+            } else if(this.getAttribute('id') === 'subscriptions') {
                 addBox('expense', 'subscriptions-btn');
-            } else if(this.getAttribute('id') === "transport") {
+            } else if(this.getAttribute('id') === 'transport') {
                 addBox('expense', 'transport-btn');
-            } else if(this.getAttribute('id') === "living") {
+            } else if(this.getAttribute('id') === 'living') {
                 addBox('expense', 'living-btn');
-            } else if(this.getAttribute('id') === "family") {
+            } else if(this.getAttribute('id') === 'family') {
                 addBox('expense', 'family-btn');
-            } else if(this.getAttribute('id') === "leisure") {
+            } else if(this.getAttribute('id') === 'leisure') {
                 addBox('expense', 'leisure-btn');
-            } else if(this.getAttribute('id') === "income") {
+            } else if(this.getAttribute('id') === 'income') {
                 addBox('income', 'income-btn');
-            } else if(this.getAttribute('id') === "reset-btn") {
+            } else if(this.getAttribute('id') === 'reset-btn') {
                 window.location.reload();
             }
         })
@@ -50,12 +50,16 @@ window.onresize = drawChart;
 
 // Add event listener and functionality for the currency select option.
 
-let selectedCurrency = document.getElementById("currency");
+let selectedCurrency = document.getElementById('currency');
 
-selectedCurrency.addEventListener('click', function() {        
-    let currencyPlaceholders = document.getElementsByTagName("input");
+selectedCurrency.addEventListener('click', function() {
+            
+    let currencyPlaceholders = document.getElementsByClassName('user-value');
     for (currencyPlaceholder of currencyPlaceholders) {
-        currencyPlaceholder.placeholder = selectedCurrency.value;
+        let placeholder = selectedCurrency.value;
+        console.log(placeholder);
+        // currencyPlaceholder.placeholder = selectedCurrency.value;
+        currencyPlaceholder.placeholder = placeholder;
     }
 })
 
@@ -88,7 +92,7 @@ function dropScroll(){
 function calculateResult() {
 
     // Calculate drop down adjustments for user input.
-    let selectedPeriod = document.getElementsByClassName("period");
+    let selectedPeriod = document.getElementsByClassName('period');
     let userInput = document.getElementsByClassName('user-value');
     
     for(let i = 0; i < selectedPeriod.length; i++) {
@@ -105,7 +109,7 @@ function calculateResult() {
     }
 
     // Calculate total income
-    let userIncome = document.getElementsByClassName("income");
+    let userIncome = document.getElementsByClassName('income');
     let totalIncome = 0;
 
     for(let i of userIncome) {
@@ -133,19 +137,19 @@ function calculateResult() {
     let outcome = totalIncome - totalExpense;
     let resHtml = 
     `
-    <div id="incomeTotal">
+    <div id='incomeTotal'>
         <h3>Total Income</h3>
         <p>${selectedCurrency.value}${Math.round(totalIncome* 100) / 100}</p>
     </div>
-    <div id="expenseTotal">
+    <div id='expenseTotal'>
         <h3>Total Expenditure</h3>
         <p>${selectedCurrency.value}${Math.round(totalExpense* 100) / 100}</p>
     </div>
-    <div id="outcome">
+    <div id='outcome'>
         <h3>Total Remaining</h3>
         <p>${selectedCurrency.value}${Math.round(outcome* 100) / 100}</p>
     </div>
-    <div id="chart" class="chart-style">
+    <div id='chart'>
     </div>
     `;
 
@@ -153,15 +157,15 @@ function calculateResult() {
        
     // Style the outcomes using conditional statements
     if(totalIncome > 0) {
-        document.getElementById('incomeTotal').style.color = "#00b200";
+        document.getElementById('incomeTotal').style.color = '#00b200';
     } else {
-        document.getElementById('incomeTotal').style.color = "#ff0000";
+        document.getElementById('incomeTotal').style.color = '#ff0000';
     }
 
     if(outcome > 0) {
-        document.getElementById('outcome').style.color = "#00b200";
+        document.getElementById('outcome').style.color = '#00b200';
     } else {
-        document.getElementById('outcome').style.color = "#ff0000";
+        document.getElementById('outcome').style.color = '#ff0000';
     }
     
     // Hide results and chart divs if not needed
@@ -190,7 +194,7 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {   
 
     // Calculate sum of section data for pie chart
-    let financeAndDebt = document.getElementsByClassName("finances");
+    let financeAndDebt = document.getElementsByClassName('finances');
     let financeAndDebtSum = 0;
 
     for(let finance of financeAndDebt) {
@@ -202,7 +206,7 @@ function drawChart() {
         }
     }
 
-    let savingsSection = document.getElementsByClassName("savings");
+    let savingsSection = document.getElementsByClassName('savings');
     let savingsSum = 0;
     
     for(let saving of savingsSection) {
@@ -214,7 +218,7 @@ function drawChart() {
         }
     }
 
-    let billsSection = document.getElementsByClassName("bills");
+    let billsSection = document.getElementsByClassName('bills');
     let billsSum = 0;
     
     for(let bill of billsSection) {
@@ -226,7 +230,7 @@ function drawChart() {
         }
     }
 
-    let insuranceSection = document.getElementsByClassName("insurance");
+    let insuranceSection = document.getElementsByClassName('insurance');
     let insuranceSum = 0;
     
     for(let insure of insuranceSection) {
@@ -238,7 +242,7 @@ function drawChart() {
         }
     }
 
-    let subSection = document.getElementsByClassName("subscriptions");
+    let subSection = document.getElementsByClassName('subscriptions');
     let subSum = 0;
     
     for(let sub of subSection) {
@@ -250,7 +254,7 @@ function drawChart() {
         }
     }
 
-    let livingSection = document.getElementsByClassName("living");
+    let livingSection = document.getElementsByClassName('living');
     let livingSum = 0;
     
     for(let live of livingSection) {
@@ -262,7 +266,7 @@ function drawChart() {
         }
     }
 
-    let familySection = document.getElementsByClassName("family");
+    let familySection = document.getElementsByClassName('family');
     let familySum = 0;
     
     for(let fam of familySection) {
@@ -274,7 +278,7 @@ function drawChart() {
         }
     }
 
-    let leisureSection = document.getElementsByClassName("leisure");
+    let leisureSection = document.getElementsByClassName('leisure');
     let leisureSum = 0;
     
     for(let l of leisureSection) {
@@ -324,19 +328,19 @@ function addBox(incOrExp, btnAssign) {
 
     // template literal for new input fields + remove button
     let newBoxHtml = `
-    <div class="newBox">
-        <div class="rem-box">
+    <div class='newBox'>
+        <div class='rem-box'>
             <p>Remove box</p>
-            <button class="rem-box-btn" type="button">&#x2716;</button>
-        </div class="user-input">
-        <div class="user-input">
-        <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
-        <input type="number" class="${incOrExp} ${btnAssign} user-value" value="" placeholder="£" step="0.01" min="0">
-        <select class="period" name="period">
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly" selected>Monthly</option>
-            <option value="yearly">Yearly</option>
+            <button class='rem-box-btn' type='button'>&#x2716;</button>
+        </div class='user-input'>
+        <div class='user-input'>
+        <input type='text' class='new-box' name='new-box' placeholder='Name of expense'>
+        <input type='number' class='${incOrExp} ${btnAssign} user-value' value='' placeholder='${selectedCurrency.value}' step='0.01' min='0'>
+        <select class='period' name='period'>
+            <option value='daily'>Daily</option>
+            <option value='weekly'>Weekly</option>
+            <option value='monthly' selected>Monthly</option>
+            <option value='yearly'>Yearly</option>
         </div>
     </div>
     `;       
@@ -349,7 +353,7 @@ function addBox(incOrExp, btnAssign) {
     let remButton = document.getElementsByClassName('rem-box-btn')
 
     for(rem of remButton) {
-        rem.addEventListener("click", function(r) {
+        rem.addEventListener('click', function(r) {
             r.target.closest('.newBox').remove();
         });                  
     }    
