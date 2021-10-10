@@ -208,13 +208,14 @@ details[open] .drop::after {
     height: 34px;
     margin: 0 auto;
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
+    align-self: flex-end;
 }
 
 .rem-box p {
     padding-right: 5px;
-    margin: 0;
+    margin: 0; 
 }
 
 .rem-box-btn {
