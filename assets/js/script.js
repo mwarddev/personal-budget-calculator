@@ -52,16 +52,13 @@ window.onresize = drawChart;
 
 let selectedCurrency = document.getElementById('currency');
 
-selectedCurrency.addEventListener('click', function() {
+selectedCurrency.addEventListener('change', function() {
             
     let currencyPlaceholders = document.getElementsByClassName('user-value');
     for (currencyPlaceholder of currencyPlaceholders) {
-        let placeholder = selectedCurrency.value;
-        console.log(placeholder);
-        // currencyPlaceholder.placeholder = selectedCurrency.value;
-        currencyPlaceholder.placeholder = placeholder;
+        currencyPlaceholder.placeholder = selectedCurrency.value;
     }
-})
+});
 
 /**
  * Gets details elements and scrolls the element to top when element is open
