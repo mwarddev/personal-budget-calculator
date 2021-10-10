@@ -51,13 +51,14 @@ window.onresize = drawChart;
 // Add event listener and functionality for the currency select option.
 
 let selectedCurrency = document.getElementById("currency");
-selectedCurrency.addEventListener('toggle', function() {
-    let currencyPlaceholders = document.getElementsByTagName("input");
-    
-    for(currencyPlaceholder of currencyPlaceholders) {
-        currencyPlaceholder.placeholder = selectedCurrency.value;
-    }
-})
+selectedCurrency.addEventListener('mouseup', () => {
+        let currencyPlaceholders = document.getElementsByTagName("input");
+
+        for (currencyPlaceholder of currencyPlaceholders) {
+            currencyPlaceholder.placeholder = selectedCurrency.value;
+            console.log(selectedCurrency.value);
+        }
+    })
 
 /**
  * Gets details elements and scrolls the element to top when element is open
