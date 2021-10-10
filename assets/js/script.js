@@ -51,7 +51,7 @@ window.onresize = drawChart;
 // Add event listener and functionality for the currency select option.
 
 let selectedCurrency = document.getElementById("currency");
-selectedCurrency.addEventListener("click", function() {
+selectedCurrency.addEventListener('toggle', function() {
     let currencyPlaceholders = document.getElementsByTagName("input");
     
     for(currencyPlaceholder of currencyPlaceholders) {
@@ -60,25 +60,21 @@ selectedCurrency.addEventListener("click", function() {
 })
 
 /**
- * Gets details elements and scrolls the page by 360px when element is open 
- * and reduces px count by 360 when closed
+ * Gets details elements and scrolls the element to top when element is open
  */
 function dropScroll(){
     
     let dropDown = document.getElementsByClassName('drop-down');
-    let count = 0;
 
     for(let drop of dropDown) {
         drop.addEventListener('toggle', function() {
             
             if(drop.open) {
-                count += 360;
-                window.scroll({
-                    top: count,
+                drop.scrollIntoView({
+                    block: 'start',
+                    inline: 'nearest',
                     behavior: 'smooth'
                 });
-            } else {
-                count -= 360;
             }
         })
     }
