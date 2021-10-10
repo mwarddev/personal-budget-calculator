@@ -51,7 +51,7 @@ window.onresize = drawChart;
 // Add event listener and functionality for the currency select option.
 
 let selectedCurrency = document.getElementById("currency");
-selectedCurrency.addEventListener('mousedown', () => {
+selectedCurrency.addEventListener('click', () => {
         let currencyPlaceholders = document.getElementsByTagName("input");
 
         for (currencyPlaceholder of currencyPlaceholders) {
