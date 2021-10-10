@@ -47,7 +47,7 @@ h1, h2, h3 {
     list-style: none;
 }
 
-#how-to-use summary::-webkit-details-marker {
+#how-to-use summary::marker {
     display: none;
 }
 
@@ -124,7 +124,7 @@ summary h2 {
     border: none;
 }
 
-.drop::-webkit-details-marker {
+.drop::marker {
     display: none;
 }
 
