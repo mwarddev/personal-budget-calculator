@@ -143,7 +143,7 @@ function calculateResult() {
         <p>${selectedCurrency.value}${Math.round(totalExpense* 100) / 100}</p>
     </div>
     <div id='outcome'>
-        <h3>Total Monthly Remaining</h3>
+        <h3>Total Remaining</h3>
         <p>${selectedCurrency.value}${Math.round(outcome* 100) / 100}</p>
     </div>
     `;
@@ -329,7 +329,7 @@ function addBox(incOrExp, btnAssign) {
             <button class='rem-box-btn' type='button'>&#x2716;</button>
         </div class='user-input'>
         <div class='user-input'>
-        <input type='text' class='new-box' name='new-box' placeholder='Name of expense'>
+        <input type='text' class='new-box' name='new-box' placeholder='Name of item'>
         <input type='number' class='${incOrExp} ${btnAssign} user-value' value='' placeholder='${selectedCurrency.value}' step='0.01' min='0'>
         <select class='period' name='period'>
             <option value='daily'>Daily</option>
