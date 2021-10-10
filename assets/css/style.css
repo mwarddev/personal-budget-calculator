@@ -110,7 +110,7 @@ summary h2 {
 }
 
 .drop {
-    list-style-type: none;
+    list-style: none;
     background: radial-gradient(#ffffff, #d1cfcf);
     border-radius: 25px;
     width: 70%;
@@ -267,7 +267,7 @@ footer p {
     margin-top: 10px;
 }
 
-#results h2 {
+#results h3 {
     margin-bottom: 10px;
 }
 
@@ -326,6 +326,10 @@ footer p {
         width: 20vw;
         margin-right: 5px;
         padding: 2px 2px 2px 5px;
+    }
+
+    #results h3 {
+        font-size: 0.9rem;
     }
 
     #chart {

@@ -135,15 +135,15 @@ function calculateResult() {
     let resHtml = 
     `
     <div id='incomeTotal'>
-        <h3>Total Income</h3>
+        <h3>Total Monthly Income</h3>
         <p>${selectedCurrency.value}${Math.round(totalIncome* 100) / 100}</p>
     </div>
     <div id='expenseTotal'>
-        <h3>Total Expenditure</h3>
+        <h3>Total Monthly Expenditure</h3>
         <p>${selectedCurrency.value}${Math.round(totalExpense* 100) / 100}</p>
     </div>
     <div id='outcome'>
-        <h3>Total Remaining</h3>
+        <h3>Total Monthly Remaining</h3>
         <p>${selectedCurrency.value}${Math.round(outcome* 100) / 100}</p>
     </div>
     <div id='chart'>
