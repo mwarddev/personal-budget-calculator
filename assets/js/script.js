@@ -81,8 +81,6 @@ function dropScroll(){
     }
 }
 
-
-
 /**
  * Calculates the result of total income minus total expenditure and outputs data to the DOM
  */
