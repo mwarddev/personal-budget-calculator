@@ -168,6 +168,7 @@ function calculateResult() {
         document.getElementById('outcome').style.color = "#ff0000";
     }
     
+    // Hide results and chart divs if not needed
     document.getElementById('results').style.display = 'block';
     if(totalExpense === 0) {
         document.getElementById('chart').style.display = 'none';
@@ -241,15 +242,15 @@ function drawChart() {
         }
     }
 
-    let subAndDdSection = document.getElementsByClassName("subscriptions");
-    let subAndDdSum = 0;
+    let subSection = document.getElementsByClassName("subscriptions");
+    let subSum = 0;
     
-    for(let sub of subAndDdSection) {
+    for(let sub of subSection) {
             
         if(sub.value) {
-            subAndDdSum += parseFloat(sub.value);
+            subSum += parseFloat(sub.value);
         } else {
-            subAndDdSum += 0;
+            subSum += 0;
         }
     }
 
@@ -302,7 +303,7 @@ function drawChart() {
         ['Savings', savingsSum],
         ['Household Bills', billsSum],
         ['Insurance', insuranceSum],
-        ['Subscriptions & Direct Debits', subAndDdSum],
+        ['Subscriptions', subSum],
         ['Living Costs', livingSum],
         ['Family', familySum],
         ['Leisure', leisureSum]
@@ -329,8 +330,9 @@ function addBox(incOrExp, btnAssign) {
     let newBoxHtml = `
     <div class="newBox">
         <div class="rem-box">
+            <p>Remove box</p>
             <button class="rem-box-btn" type="button">&#x2716;</button>
-        </div>
+        </div class="user-input">
         <div class="user-input">
         <input type="text" class="new-box" name="new-box" placeholder="Name of expense">
         <input type="number" class="${incOrExp} ${btnAssign} user-value" value="" placeholder="£" step="0.01" min="0">

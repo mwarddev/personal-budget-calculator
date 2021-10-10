@@ -3,7 +3,7 @@
 
 /* Global styling */
 body {
-    background: radial-gradient(#ffffff, #e9e5e5); 
+    background-color: #ffffff; 
     font-family: 'Roboto', sans-serif;
     color: #008600;
     text-align: center;
@@ -50,23 +50,23 @@ h1, h2, h3 {
     content: '\24D8';
     font-weight: 600;
     color: #008600;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 #how-to-use[open] summary::after {
     content: '\24D8';
     font-weight: 600;
     color: #008600;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 #how-to-info {
-    width: 300px;
+    width: 265px;
     height: auto;
-    border: solid 1px #008600;
-    border-radius: 5px;
+    border: solid 2px #008600;
+    border-radius: 25px;
     background-color: #ffffff;
-    padding: 5px;
+    padding: 10px;
     line-height: 1.2;
     margin-top: 5px;
 }
@@ -84,11 +84,11 @@ h1, h2, h3 {
 /* Currency selector */
 
 #currency {
-    padding: 5px;
+    padding: 2px;
     margin: 20px 0;
     color: #008600;
-    border-radius: 5px;
-    border-color: #008600;
+    border-radius: 25px;
+    border: solid 2px #008600;
 }
 
 #currency-wrapper {
@@ -96,6 +96,11 @@ h1, h2, h3 {
 }
 
 /* Form data */
+
+.form-container {
+    width: 100%;
+    margin: 0 auto;
+}
 
 summary h2 {
     text-transform: uppercase;
@@ -108,7 +113,7 @@ summary h2 {
     list-style-type: none;
     background: radial-gradient(#ffffff, #d1cfcf);
     border-radius: 25px;
-    width: 60%;
+    width: 70%;
     margin: 5px auto;
     cursor: pointer;
     border: none;
@@ -131,60 +136,81 @@ details[open] .drop::after {
 }
 
 .user-input {
-    margin: 20px auto;
+    margin: 15px auto;
     width: 80%;
 }
 
-.user-input label {
+.user-input label, .new-box {
     border: solid 0.5px #000000;
     background-color: #ffffff;
-    border-radius: 3px;
-    padding: 5px;
-    margin-right: 20px;
+    border-radius: 25px;
+    padding: 2px 2px 2px 5px;
+    margin-right: 10px;
     display: inline-block;
-    width: 25vw;
+    width: 30vw;
     text-align: left;
+    border: solid 2px #00b200;
+    font-size: 1rem;    
 }
 
-.user-input input {
-    padding: 5px;
-    width: 25vw;
-    margin-right: 20px;
+.user-value {
+    padding: 3px 3px 3px 5px;
+    width: 30vw;
+    margin-right: 10px;
+    border-radius: 25px;
+    border-color: #00b200;
+    color: #008600;
 }
 
-.user-input select {
-    padding: 5px;
+.period {
+    padding: 2px;
+    color: #008600;
+    border-radius: 25px;
+    cursor: pointer;
+    border: solid 2px #00b200;
 }
 
 /* Add box button */
 
 .add-box {
-    width: 60%;
-    margin: auto;
+    width: 70%;
+    height: 34px;
+    margin: 0 auto;
     text-align: left;
-    display: block;
+    display: flex;
+    align-items: center;
 }
 
 .add-box-btn {
+    height: 34px;
     font-size: 2rem;
     color: #00b200;
     border: none;
     background-color: unset;
-    display: inline;
     cursor: pointer;
+    margin-bottom: 3px;
 }
 
 .add-box p {
-    display: inline;
+    text-align: left;
+    padding-left: 5px;
+    margin: 0;
 }
 
 /* remove box button */
 
 .rem-box {
-    width: 60%;
-    margin: auto;
-    text-align: right;
-    display: block;
+    width: 70%;
+    height: 34px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.rem-box p {
+    padding-right: 5px;
+    margin: 0;
 }
 
 .rem-box-btn {
@@ -192,7 +218,6 @@ details[open] .drop::after {
     color: #ff0000;
     border: none;
     background-color: unset;
-    display: inline;
     cursor: pointer;
 }
 
@@ -200,6 +225,23 @@ details[open] .drop::after {
 
 #calculate {
     margin-top: 20px;
+}
+
+#calc-btn, #reset-btn {
+    width: 132px;
+    padding: 5px;
+    margin: 0 10px;
+    background-color: #ffffff;
+    color: #008600;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: solid 2px #008600;
+    border-radius: 25px;
+}
+
+#calc-btn:hover, #reset-btn:hover {
+    background-color: #008600;
+    color: #ffffff;
 }
 
 /*Footer*/
@@ -234,9 +276,59 @@ footer p {
     display: inline-block;
 }
 
-.chart-style {
+#chart {
     width: 40%;
     height: auto;
-    margin: 0 auto;
+    margin: 0 auto;    
+}
+
+/* Media queries */
+
+/* For screens up to 1250px wide */
+
+@media screen and (max-width: 1250px) {
+    #chart {
+        width: 60%;
+    }
+}
+
+/* For screens up to 800px wide */
+
+@media screen and (max-width: 800px) {
+
+    #heading {
+        font-size: 1rem;
+    }
+
+    .drop, .user-input, .add-box, .rem-box {
+        width: 90%;
+    }
+
+    .user-input label, .new-box {
+        width: 33vw;
+    }
+
+    #chart {
+        width: 80%;
+    }
+}
+
+/* For screens up to 560px wide */
+
+@media screen and (max-width: 560px) {
+
+    .user-input label, .new-box {
+        font-size: 0.8rem;
+        margin-right: 5px;
+    }
     
+    .user-value {
+        width: 20vw;
+        margin-right: 5px;
+        padding: 2px 2px 2px 5px;
+    }
+
+    #chart {
+        width: 100%;
+    }
 }
