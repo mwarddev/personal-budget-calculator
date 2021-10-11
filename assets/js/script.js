@@ -131,11 +131,11 @@ function calcPeriod() {
     for(let i = 0; i < selectedPeriod.length; i++) {
         
         if(selectedPeriod[i].selectedIndex == [0]) {
-            parseFloat(userInput[i].value *= 30.41).toFixed(2);
+            userInput[i].value = parseFloat(userInput[i].value *= 30.41).toFixed(2);
         } else if(selectedPeriod[i].selectedIndex == [1]) {
-            parseFloat(userInput[i].value *= 4.34).toFixed(2);
+            userInput[i].value = parseFloat(userInput[i].value *= 4.34).toFixed(2);
         } else if(selectedPeriod[i].selectedIndex == [3]) {
-            parseFloat(userInput[i].value /= 12).toFixed(2);
+            userInput[i].value = parseFloat(userInput[i].value /= 12).toFixed(2);
         } else {
             userInput[i].value += '';
         }
