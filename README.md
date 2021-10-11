@@ -23,6 +23,8 @@ View live site here: https://mwarddev.github.io/personal-budget-calculator/
     * [Platforms](#platforms)
     * [Peer reviews](#peer-reviews)
     * [Validator Testing](#validator-testing)
+* [Deployment](#deployment)
+* [Credits](#credits)
 
 
 ## User Experience (UX)
@@ -242,11 +244,14 @@ The Add more boxes button allows the user to add more data rows if needed. The b
 If only income data is issued, the form will only output total income data at the bottom of the form and wil hide the chart section.
 #### **Expenditure pie chart**
 ![Pie chart](assets/readme_images/pbc_pie.png)
-The pie chart is populated with user expenditure data and gives the user a visual representation of their monthly spend. Each section corresponds to the collapsable sections of the form. If the user feels they could adjust their spending for the month in order to save more, they can adjust data and recalculate to see the amended outcome.
+The pie chart is an api imported from Google charts. The chart is populated with user expenditure data and gives the user a visual representation of their monthly spend. Each section corresponds to the collapsable sections of the form. If the user feels they could adjust their spending for the month in order to save more, they can adjust data and recalculate to see the amended outcome.
 
 #### **Collapsable sections**
 Each section of the form is collapsable to keep the page tidy and not overwhelm the user with loads of form data all at once. Upon expanding the sections the form autoscrolls the section header to the top of the page to keep all form data in view.
-Not all form data needs to be filled in for the form to be calculated. Any empty fields are calculated with zero value. 
+Not all form data needs to be filled in for the form to be calculated. Any empty fields are calculated with zero value.
+
+#### **Responsive**
+The site is fully responsive down to 320px screen width using percentage measurements and media queries.
 
 ### **Future Features**
 #### **Money saving tips**
@@ -272,16 +277,28 @@ The following issues were raised:
 * Upon suggestion from my mentor and family member large JS functions were split into smaller functions and called where needed - fixed.
 
 #### Validator Testing
+#### CSS
 CSS code was run through the W3C CSS Jigsaw validator with no errors and 3 warnings. The first was for importing a google api for google fonts and the second and third were for the aforementioned webkits which are needed for my code to work on IOS.
 ![CSS report](assets/readme_images/pbc_css_report.png)
 ![CSS report warnings](assets/readme_images/pbc_css_report_warnings.png)
+
+#### HTML
 HTML code was run through the W3C Markup validation service with no reported errors.
 ![HTML report](assets/readme_images/pbc_html_report.png)
+
+#### JavaScript
 JavaScript code was run through the Jshint validator with 2 warnings for functions declared within loops (these were used to assign buttons and the auto scroll feature of the site) and one undefined variable (google). This was due to the gstatic api needing to be loaded from the head of the HTML file.
 ![JS report](assets/readme_images/pbc_jshint_report.png)
+
+#### Lighthouse
 Finally, a lighthouse report was run with 100% in all areas.
 ![lighthouse report](assets/readme_images/pbc_lighthouse_report.png)
 
 ## Deployment
 
+The site was deployed to Github pages using the following steps:
+* In the Github repository, navigate to the settings tab.
+* Scroll down and select Pages from the left side navigation menu to open Github pages.
+* In the Source section, click on the dropdown menu and select the Master branch.
+* Once the Master branch is selected the page will refresh to display a message stating "your site is published at https://mwarddev.github.io/personal-budget-calculator/
 ## Credits
