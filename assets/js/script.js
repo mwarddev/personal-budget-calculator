@@ -389,7 +389,7 @@ function addBox(incOrExp, btnAssign) {
     // Remove nearest new fields when remove button clicked
     let remButton = document.getElementsByClassName('rem-box-btn');
 
-    for(rem of remButton) {
+    for(let rem of remButton) {
         rem.addEventListener('click', function(r) {
             r.target.closest('.newBox').remove();
         });                  
