@@ -245,6 +245,10 @@ If only income data is issued, the form will only output total income data at th
 #### **Expenditure pie chart**
 ![Pie chart](assets/readme_images/pbc_pie.png)
 The pie chart is an api imported from Google charts. The chart is populated with user expenditure data and gives the user a visual representation of their monthly spend. Each section corresponds to the collapsable sections of the form. If the user feels they could adjust their spending for the month in order to save more, they can adjust data and recalculate to see the amended outcome.
+#### **Form Validation**
+![Validator alert](assets/readme_images/pbc_validate_alert.png)
+On submitting the form data, all fields are checked through a validator function to check for minus values and values with more than 2 decimal places. The user then gets an alert and is asked to enter a valid value. The background of the field turns red until the value is changed and re-submitted.
+![Validator indicator](assets/readme_images/pbc_validate_indicator.png)
 
 #### **Collapsable sections**
 Each section of the form is collapsable to keep the page tidy and not overwhelm the user with loads of form data all at once. Upon expanding the sections the form autoscrolls the section header to the top of the page to keep all form data in view.
