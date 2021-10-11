@@ -112,7 +112,7 @@ function calcPeriod() {
         } else if(selectedPeriod[i].selectedIndex == [3]) {
             userInput[i].value /= 12;
         } else {
-            userInput[i].value += 0;
+            userInput[i].value += '';
         }
     }
     
