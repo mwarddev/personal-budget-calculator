@@ -5,33 +5,46 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let buttons = document.getElementsByTagName("button");
 
-    for(button of buttons) {
+    for(let button of buttons) {
         button.addEventListener('click', function() {
-            if(this.getAttribute('id') === 'calc-btn') {
-                calculateResult();
-                drawChart();
-            } else if(this.getAttribute('id') === 'finances') {   
-                addBox('expense', 'finances-btn');
-            } else if(this.getAttribute('id') === 'savings') {
-                addBox('expense', 'savings-btn');
-            } else if(this.getAttribute('id') === 'bills') {
-                addBox('expense', 'bills-btn');
-            } else if(this.getAttribute('id') === 'insurance') {
-                addBox('expense', 'insurance-btn');
-            } else if(this.getAttribute('id') === 'subscriptions') {
-                addBox('expense', 'subscriptions-btn');
-            } else if(this.getAttribute('id') === 'transport') {
-                addBox('expense', 'transport-btn');
-            } else if(this.getAttribute('id') === 'living') {
-                addBox('expense', 'living-btn');
-            } else if(this.getAttribute('id') === 'family') {
-                addBox('expense', 'family-btn');
-            } else if(this.getAttribute('id') === 'leisure') {
-                addBox('expense', 'leisure-btn');
-            } else if(this.getAttribute('id') === 'income') {
-                addBox('income', 'income-btn');
-            } else if(this.getAttribute('id') === 'reset-btn') {
-                window.location.reload();
+            let att = this.getAttribute('id');
+            switch(att){
+                case 'calc-btn':
+                    calculateResult();
+                    drawChart();
+                    break;
+                case 'income':
+                    addBox('income', 'income-btn');
+                    break;
+                case 'finances':
+                    addBox('expense', 'finances-btn');
+                    break;
+                case 'savings':
+                    addBox('expense', 'savings-btn');
+                    break;
+                case 'bills':
+                    addBox('expense', 'bills-btn');
+                    break;
+                case 'insurance':
+                    addBox('expense', 'bills-btn');
+                    break;
+                case 'subscriptions':
+                    addBox('expense', 'subscriptions-btn');
+                    break;
+                case 'transport':
+                    addBox('expense', 'transport-btn');
+                    break;
+                case 'living':
+                    addBox('expense', 'living-btn');
+                    break;
+                case 'family':
+                    addBox('expense', 'family-btn');
+                    break;
+                case 'leisure':
+                    addBox('expense', 'leisure-btn');
+                    break;
+                default:
+                    window.location.reload();
             }
         });
     }
@@ -55,7 +68,7 @@ let selectedCurrency = document.getElementById('currency');
 selectedCurrency.addEventListener('change', function() {
             
     let currencyPlaceholders = document.getElementsByClassName('user-value');
-    for (currencyPlaceholder of currencyPlaceholders) {
+    for (let currencyPlaceholder of currencyPlaceholders) {
         currencyPlaceholder.placeholder = selectedCurrency.value;
     }
 });
@@ -81,15 +94,15 @@ function dropScroll(){
     }
 }
 
-/**
- * Calculates the result of total income minus total expenditure and outputs data to the DOM
- */
-function calculateResult() {
 
-    // Calculate drop down adjustments for user input.
+/**
+ * Takes selected period for each number input and calculates a monthly output
+ */
+function calcPeriod() {
+    
     let selectedPeriod = document.getElementsByClassName('period');
     let userInput = document.getElementsByClassName('user-value');
-    
+
     for(let i = 0; i < selectedPeriod.length; i++) {
         
         if(selectedPeriod[i].selectedIndex == [0]) {
@@ -99,11 +112,18 @@ function calculateResult() {
         } else if(selectedPeriod[i].selectedIndex == [3]) {
             userInput[i].value /= 12;
         } else {
-            userInput[i].value;
+            userInput[i].value += 0;
         }
     }
+    
+}
 
-    // Calculate total income
+
+/**
+ * Calculates total monthly income
+ */
+function calcIncome() {
+
     let userIncome = document.getElementsByClassName('income');
     let totalIncome = 0;
 
@@ -115,7 +135,15 @@ function calculateResult() {
             totalIncome += 0;
         }        
     }
-    // Calculate total expenses
+    return totalIncome;
+}
+
+
+/**
+ * Calculate total monthly expenses
+ */
+function calcExpenses() {
+    
     let userExpense = document.getElementsByClassName('expense');
     let totalExpense = 0;
 
@@ -127,18 +155,30 @@ function calculateResult() {
             totalExpense += 0;
         }        
     }
-    
+    return totalExpense;
+}
+
+
+/**
+ * Calculates the result of total income minus total expenditure and outputs data to the DOM
+ */
+function calculateResult() {
+
+    // Call calcPeriod function to get monthly inputs
+    calcPeriod();   
     // Output conditional results to the DOM
-    let outcome = totalIncome - totalExpense;
+    
+    let outcome = calcIncome() - calcExpenses();
+    console.log(outcome);
     let resHtml = 
     `
     <div id='incomeTotal'>
         <h3>Total Monthly Income</h3>
-        <p>${selectedCurrency.value}${Math.round(totalIncome* 100) / 100}</p>
+        <p>${selectedCurrency.value}${Math.round(calcIncome()* 100) / 100}</p>
     </div>
     <div id='expenseTotal'>
         <h3>Total Monthly Expenditure</h3>
-        <p>${selectedCurrency.value}${Math.round(totalExpense* 100) / 100}</p>
+        <p>${selectedCurrency.value}${Math.round(calcExpenses()* 100) / 100}</p>
     </div>
     <div id='outcome'>
         <h3>Total Remaining</h3>
@@ -149,7 +189,7 @@ function calculateResult() {
     document.getElementById('results').innerHTML = resHtml;
        
     // Style the outcomes using conditional statements
-    if(totalIncome > 0) {
+    if(calcIncome() > 0) {
         document.getElementById('incomeTotal').style.color = '#00b200';
     } else {
         document.getElementById('incomeTotal').style.color = '#ff0000';
@@ -163,23 +203,26 @@ function calculateResult() {
     
     // Hide results and chart divs if not needed
     document.getElementById('results').style.display = 'block';
-    if(totalExpense === 0) {
+    if(calcExpenses() === 0) {
         document.getElementById('chart').style.display = 'none';
     } else {
         document.getElementById('chart').style.display = 'block';
     }
 
     // Reset drop down buttons back to Monthly after calculation
-    for(let selected of selectedPeriod) {
+    let selectedPeriods = document.getElementsByClassName('period');
+    for(let selected of selectedPeriods) {
         selected.selectedIndex = '2';
     }
 }
+
 
 // Load the Visualization API and the corechart package for the pie chart.
 google.charts.load('current', {'packages':['corechart']});
 
 // Set a callback to run when the Google Visualization API is loaded.
 google.charts.setOnLoadCallback(drawChart);
+
 
 /**
  * Calculate user input sections and use data to create a pie chart
@@ -197,7 +240,7 @@ function drawChart() {
         } else {
             financeAndDebtSum += 0;
         }
-    }
+    }    
 
     let savingsSection = document.getElementsByClassName('savings');
     let savingsSum = 0;
@@ -210,6 +253,7 @@ function drawChart() {
             savingsSum += 0;
         }
     }
+    
 
     let billsSection = document.getElementsByClassName('bills');
     let billsSum = 0;
