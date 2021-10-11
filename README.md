@@ -4,6 +4,8 @@ Personal Budget Calculator (or PBC) helps the user calculate their personal fina
 
 ![Am I Responsive image](assets/readme_images/pbc_air.png)
 
+View live site here: https://mwarddev.github.io/personal-budget-calculator/
+
 ## Contents
 * [Description](#personal-budget-calculator)
 * [User Experience (UX)](#user-experience-ux)
@@ -14,6 +16,13 @@ Personal Budget Calculator (or PBC) helps the user calculate their personal fina
     * [Structure](#structure)
     * [Skeleton](#skeleton)
     * [Surface](#surface)
+* [Features](#features)
+    * [Existing Features](#existing-features)
+    * [Future Features](#future-features)
+* [Testing](#testing)
+    * [Platforms](#platforms)
+    * [Peer reviews](#peer-reviews)
+    * [Validator Testing](#validator-testing)
 
 
 ## User Experience (UX)
@@ -243,6 +252,35 @@ Not all form data needs to be filled in for the form to be calculated. Any empty
 #### **Money saving tips**
 User data could be used to evaluate if there are any areas in which they could save money and money saving tips could be displayed on calculation. For instance, if the user enters data in a personal loan field as well as credit cards, the output could display a tip for consolidating the debts into one affordable consolidation loan.
 ## Testing
+
+### Platforms
+* Desktop/Laptop with the following browsers:
+    * Google Chrome - no issues, used to develop site.
+    * Opera - One issue, remove box on wrong side of screen, used flex align-self to fix.
+    * Microsoft Edge - no issues.
+    * FireFox - no issues.
+* iPad/iPhone - CSS issues with hidden details markers, fixed with -webkit-details-marker and display none.
+* Android Phone - no issues.
+
+### Peer Reviews
+Code was deployed and links send to friends and family to review as well as posted in a Slack channel for fellow coders to review.
+The following issues were raised:
+* IOS CSS issues (covered above) - fixed.
+* Overlapping text on mobile phone - fixed with a media query.
+* Drawchart container warning in console on load - Caused by hidden div, moved div out of container, fixed.
+* User able to input minus figures in input fields - Validator attributes added in HTML file, fixed.
+* Upon suggestion from my mentor and family member large JS functions were split into smaller functions and called where needed - fixed.
+
+#### Validator Testing
+CSS code was run through the W3C CSS Jigsaw validator with no errors and 3 warnings. The first was for importing a google api for google fonts and the second and third were for the aforementioned webkits which are needed for my code to work on IOS.
+![CSS report](assets/readme_images/pbc_css_report.png)
+![CSS report warnings](assets/readme_images/pbc_css_report_warnings.png)
+HTML code was run through the W3C Markup validation service with no reported errors.
+![HTML report](assets/readme_images/pbc_html_report.png)
+JavaScript code was run through the Jshint validator with 2 warnings for functions declared within loops (these were used to assign buttons and the auto scroll feature of the site) and one undefined variable (google). This was due to the gstatic api needing to be loaded from the head of the HTML file.
+![JS report](assets/readme_images/pbc_jshint_report.png)
+Finally, a lighthouse report was run with 100% in all areas.
+![lighthouse report](assets/readme_images/pbc_lighthouse_report.png)
 
 ## Deployment
 
