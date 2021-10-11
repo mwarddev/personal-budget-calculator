@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let att = this.getAttribute('id');
             switch(att){
                 case 'calc-btn':
-                    calculateResult();
-                    drawChart();
+                    validator();
                     break;
                 case 'income':
                     addBox('income', 'income-btn');
@@ -94,6 +93,32 @@ function dropScroll(){
     }
 }
 
+function validator() {
+
+    let userNums = document.getElementsByClassName('user-value');
+    let valid = 0;
+    for(let userNum of userNums) {
+
+        if(userNum.value > 0 && (userNum.value == parseFloat(userNum.value).toFixed(2) || userNum.value == parseInt(userNum.value)))  {
+            userNum.style.backgroundColor = '#ffffff';
+            userNum.style.color = '#008600';
+            valid++;
+        } else if(userNum.value === '') {
+            valid++;
+            continue;
+        } else {
+            userNum.style.backgroundColor = '#a00000';
+            userNum.style.color = '#ffffff';
+            alert('Please enter a valid amount.\nValues must be greater than 0 and be no more than 2 decimal places.\nExample: 10.99');
+        }
+    }
+    
+    if(valid == userNums.length) {
+        calculateResult();
+    }
+    
+}
+
 
 /**
  * Takes selected period for each number input and calculates a monthly output
@@ -106,11 +131,11 @@ function calcPeriod() {
     for(let i = 0; i < selectedPeriod.length; i++) {
         
         if(selectedPeriod[i].selectedIndex == [0]) {
-            userInput[i].value *= 30.41;
+            parseFloat(userInput[i].value *= 30.41).toFixed(2);
         } else if(selectedPeriod[i].selectedIndex == [1]) {
-            userInput[i].value *= 4.34;
+            parseFloat(userInput[i].value *= 4.34).toFixed(2);
         } else if(selectedPeriod[i].selectedIndex == [3]) {
-            userInput[i].value /= 12;
+            parseFloat(userInput[i].value /= 12).toFixed(2);
         } else {
             userInput[i].value += '';
         }
@@ -169,7 +194,7 @@ function calculateResult() {
     // Output conditional results to the DOM
     
     let outcome = calcIncome() - calcExpenses();
-    console.log(outcome);
+
     let resHtml = 
     `
     <div id='incomeTotal'>
@@ -200,6 +225,9 @@ function calculateResult() {
     } else {
         document.getElementById('outcome').style.color = '#ff0000';
     }
+
+    // Call draw chart function
+    drawChart();
     
     // Hide results and chart divs if not needed
     document.getElementById('results').style.display = 'block';
