@@ -1,6 +1,8 @@
 # Personal Budget Calculator
 
-Personal Budget Calculator (or PBC) helps the user calculate their personal finances over the course of a month. The calculator with give the user a visual representation of their finances with balances and a chart to show how much of their income they are saving or where overspending occurs. The results will show a percentage of each outgoing element so they can identify where they can make further savings. The form can also be manipulated further to show the impact of these savings after a recalculation. The form data can also be manipulated to calculate where savings could be made and offer tips to the user.
+Personal Budget Calculator (or PBC) helps the user calculate their personal finances over the course of a month. The calculator with give the user a visual representation of their finances with balances and a chart to show how much of their income they are saving or where overspending occurs. The results will show a percentage of each outgoing element so they can identify where they can make further savings. The form can also be manipulated further to show the impact of these savings after a recalculation.
+
+![Am I Responsive image](assets/readme_images/pbc_air.png)
 
 ## Contents
 * [Description](#personal-budget-calculator)
@@ -212,10 +214,34 @@ The Poppins font was chosen for headings for readability purposes and the Roboto
 Favicon ![icon](assets/images/pbc_icon.ico) created by myself as a .png file then coverted to an .ico file using [image.online-convert.com](https://image.online-convert.com/convert-to-ico).
 
 ## Features
-### Existing Features
+### **Existing Features**
+#### **How to use**
+![How to use drop down](assets/readme_images/pbc_how_to_use.png)
+At the top of the screen there is a how to use drop down giving a short description of how the calculator works.
+#### **Currency drop down**
+![Currency drop down](assets/readme_images/pbc_currency_drop.png)
+The currency drop down allows the user to select one of 3 currencies. This places the selected currency symbol as a placeholder in each input box and prefixes the results totals.
+#### **Period drop down**
+![Period drop down](assets/readme_images/pbc_period_drop.png)
+The period drop down allows the user to select options of daily, weekly, monthly (default), and yearly for each number input box. This means, for instance, if the user is paid weekly, the weekly option can be selected for the wages row and when the form is calculated this value will be multiplied to a monthly value.
+On calculating the form, all period selectors return to monthly to allow further calculations if the user wishes to amend form data after calculation.
+#### **Add more boxes**
+![Add boxes](assets/readme_images/pbc_add_box.png)
+The Add more boxes button allows the user to add more data rows if needed. The boxes can also be named and removed with the Remove box button if not needed.
+#### **Income only output**
+![Income only](assets/readme_images/pbc_income_only.png)
+If only income data is issued, the form will only output total income data at the bottom of the form and wil hide the chart section.
+#### **Expenditure pie chart**
+![Pie chart](assets/readme_images/pbc_pie.png)
+The pie chart is populated with user expenditure data and gives the user a visual representation of their monthly spend. Each section corresponds to the collapsable sections of the form. If the user feels they could adjust their spending for the month in order to save more, they can adjust data and recalculate to see the amended outcome.
 
-### Future Features
+#### **Collapsable sections**
+Each section of the form is collapsable to keep the page tidy and not overwhelm the user with loads of form data all at once. Upon expanding the sections the form autoscrolls the section header to the top of the page to keep all form data in view.
+Not all form data needs to be filled in for the form to be calculated. Any empty fields are calculated with zero value. 
 
+### **Future Features**
+#### **Money saving tips**
+User data could be used to evaluate if there are any areas in which they could save money and money saving tips could be displayed on calculation. For instance, if the user enters data in a personal loan field as well as credit cards, the output could display a tip for consolidating the debts into one affordable consolidation loan.
 ## Testing
 
 ## Deployment
