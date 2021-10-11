@@ -107,7 +107,7 @@ function validator() {
             valid++;
             continue;
         } else {
-            userNum.style.backgroundColor = '#a00000';
+            userNum.style.backgroundColor = '#ff0000';
             userNum.style.color = '#ffffff';
             alert('Please enter a valid amount.\nValues must be greater than 0 and be no more than 2 decimal places.\nExample: 10.99');
         }

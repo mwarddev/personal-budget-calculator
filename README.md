@@ -306,3 +306,9 @@ The site was deployed to Github pages using the following steps:
 * In the Source section, click on the dropdown menu and select the Master branch.
 * Once the Master branch is selected the page will refresh to display a message stating "your site is published at https://mwarddev.github.io/personal-budget-calculator/
 ## Credits
+
+* Stackoverflow.com was utilised on many occasions for syntax referencing and inspiration during the build of this site as was eloquentjavascript.net.
+* Anthony Ugwu (my mentor) helped me out tremedously with debugging an issue with the period drop down menus.
+* The scroll into view function was taken from the [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) website.
+* [Google charts](https://developers.google.com/chart/interactive/docs/quick_start) was used to build the pie chart in the results section.
+* Friends and family for helping me test the site and offering suggestions on how to improve it.
