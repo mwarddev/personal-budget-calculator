@@ -1,6 +1,6 @@
 # Personal Budget Calculator
 
-Personal Budget Calculator (or PBC) helps the user calculate their personal finances over the course of a month. The calculator with give the user a visual representation of their finances with balances and a chart to show how much of their income they are saving or where overspending occurs. The results will show a percentage of each outgoing element so they can identify where they can make further savings. The form can also be manipulated further to show the impact of these savings after a recalculation.
+Personal Budget Calculator (or PBC) helps the user calculate their personal finances over the course of a month. The calculator will give the user a visual representation of their finances with balances and a chart to show how much of their income they are saving or where overspending occurs. The results will show a percentage of each outgoing element so they can identify where they can make further savings. The form can also be manipulated further to show the impact of these savings after a recalculation.
 
 ![Am I Responsive image](assets/readme_images/pbc_air.png)
 
@@ -37,7 +37,6 @@ View live site here: https://mwarddev.github.io/personal-budget-calculator/
 #### Site Owner Goals:
 * The site owner’s goal is to provide the user with an easy-to-use tool to calculate their monthly expenditure.
 * The site owner’s goal is to help the user to visualise where they can make savings by providing easy to read results and allowing them to adjust the form data to see where savings can be made.
-* The site owner’s goal is to use the data provided by the user to suggest areas of expenditure where savings could be made.
 
 ## Design (UXD)
 
@@ -65,7 +64,7 @@ View live site here: https://mwarddev.github.io/personal-budget-calculator/
 * What constraints does the site or app have to conform within?
     * Limited build time. No back end to store user data for a month-on-month review.
 * What dynamic constraints do we have to meet?
-    * Ensure calculations are correct.
+    * Ensure calculations are correct and user input is correctly validated.
 
 ### Structure
 
@@ -231,7 +230,7 @@ Favicon ![icon](assets/images/pbc_icon.ico) created by myself as a .png file the
 At the top of the screen there is a how to use drop down giving a short description of how the calculator works.
 #### **Currency drop down**
 ![Currency drop down](assets/readme_images/pbc_currency_drop.png)
-The currency drop down allows the user to select one of 3 currencies. This places the selected currency symbol as a placeholder in each input box and prefixes the results totals.
+The currency drop down allows the user to select one of 3 currencies. This places the selected currency symbol as a placeholder in each input box and prefixes the resulting totals.
 #### **Period drop down**
 ![Period drop down](assets/readme_images/pbc_period_drop.png)
 The period drop down allows the user to select options of daily, weekly, monthly (default), and yearly for each number input box. This means, for instance, if the user is paid weekly, the weekly option can be selected for the wages row and when the form is calculated this value will be multiplied to a monthly value.
@@ -251,7 +250,7 @@ On submitting the form data, all fields are checked through a validator function
 ![Validator indicator](assets/readme_images/pbc_validate_indicator.png)
 
 #### **Collapsable sections**
-Each section of the form is collapsable to keep the page tidy and not overwhelm the user with loads of form data all at once. Upon expanding the sections the form autoscrolls the section header to the top of the page to keep all form data in view.
+Each section of the form is collapsable to keep the page tidy and not overwhelm the user with lots of form data all at once. Upon expanding the sections the form autoscrolls the section header to the top of the page to keep all form data in view.
 Not all form data needs to be filled in for the form to be calculated. Any empty fields are calculated with zero value.
 
 #### **Responsive**
@@ -264,21 +263,21 @@ User data could be used to evaluate if there are any areas in which they could s
 
 ### Platforms
 * Desktop/Laptop with the following browsers:
-    * Google Chrome - no issues, used to develop site.
+    * Google Chrome - No issues, used to develop site.
     * Opera - One issue, remove box on wrong side of screen, used flex align-self to fix.
     * Microsoft Edge - no issues.
-    * FireFox - no issues.
+    * FireFox - No issues.
 * iPad/iPhone - CSS issues with hidden details markers, fixed with -webkit-details-marker and display none.
-* Android Phone - no issues.
+* Android Phone - No issues.
 
 ### Peer Reviews
 Code was deployed and links send to friends and family to review as well as posted in a Slack channel for fellow coders to review.
 The following issues were raised:
-* IOS CSS issues (covered above) - fixed.
-* Overlapping text on mobile phone - fixed with a media query.
+* IOS CSS issues (covered above) - Fixed.
+* Overlapping text on mobile phone - Fixed with a media query.
 * Drawchart container warning in console on load - Caused by hidden div, moved div out of container, fixed.
 * User able to input minus figures in input fields - Validator attributes added in HTML file, fixed.
-* Upon suggestion from my mentor and family member large JS functions were split into smaller functions and called where needed - fixed.
+* Upon suggestion from my mentor and family member large JS functions were split into smaller functions and called where needed - Fixed.
 
 #### Validator Testing
 #### CSS
