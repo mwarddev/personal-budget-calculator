@@ -1,14 +1,14 @@
 // Wait for DOM to finish loading before running JS
 // Add event listeners to all buttons
 
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     let buttons = document.getElementsByTagName("button");
 
-    for(let button of buttons) {
-        button.addEventListener('click', function() {
+    for (let button of buttons) {
+        button.addEventListener('click', function () {
             let att = this.getAttribute('id');
-            switch(att){
+            switch (att) {
                 case 'calc-btn':
                     validator();
                     break;
@@ -64,8 +64,8 @@ window.onresize = drawChart;
 
 let selectedCurrency = document.getElementById('currency');
 
-selectedCurrency.addEventListener('change', function() {
-            
+selectedCurrency.addEventListener('change', function () {
+
     let currencyPlaceholders = document.getElementsByClassName('user-value');
     for (let currencyPlaceholder of currencyPlaceholders) {
         currencyPlaceholder.placeholder = selectedCurrency.value;
@@ -75,14 +75,14 @@ selectedCurrency.addEventListener('change', function() {
 /**
  * Gets details elements and scrolls the element to top when element is open
  */
-function dropScroll(){
-    
+function dropScroll() {
+
     let dropDown = document.getElementsByClassName('drop-down');
 
-    for(let drop of dropDown) {
-        drop.addEventListener('toggle', function() {
-            
-            if(drop.open) {
+    for (let drop of dropDown) {
+        drop.addEventListener('toggle', function () {
+
+            if (drop.open) {
                 drop.scrollIntoView({
                     block: 'start',
                     inline: 'nearest',
@@ -97,13 +97,13 @@ function validator() {
 
     let userNums = document.getElementsByClassName('user-value');
     let valid = 0;
-    for(let userNum of userNums) {
+    for (let userNum of userNums) {
 
-        if(userNum.value >= 0 && (userNum.value == parseFloat(userNum.value).toFixed(2) || userNum.value == parseInt(userNum.value)))  {
+        if (userNum.value >= 0 && (userNum.value == parseFloat(userNum.value).toFixed(2) || userNum.value == parseInt(userNum.value))) {
             userNum.style.backgroundColor = '#ffffff';
             userNum.style.color = '#008600';
             valid++;
-        } else if(userNum.value === '') {
+        } else if (userNum.value === '') {
             valid++;
             continue;
         } else {
@@ -112,12 +112,12 @@ function validator() {
             alert('Please enter a valid amount.\nValues must be greater than 0 and be no more than 2 decimal places.\nExample: 10.99');
         }
     }
-    
-    if(valid == userNums.length) {
+
+    if (valid == userNums.length) {
         calculateResult();
         drawChart();
     }
-    
+
 }
 
 
@@ -125,23 +125,23 @@ function validator() {
  * Takes selected period for each number input and calculates a monthly output
  */
 function calcPeriod() {
-    
+
     let selectedPeriod = document.getElementsByClassName('period');
     let userInput = document.getElementsByClassName('user-value');
 
-    for(let i = 0; i < selectedPeriod.length; i++) {
-        
-        if(selectedPeriod[i].selectedIndex == [0]) {
+    for (let i = 0; i < selectedPeriod.length; i++) {
+
+        if (selectedPeriod[i].selectedIndex == [0]) {
             userInput[i].value = parseFloat(userInput[i].value *= 30.41).toFixed(2);
-        } else if(selectedPeriod[i].selectedIndex == [1]) {
+        } else if (selectedPeriod[i].selectedIndex == [1]) {
             userInput[i].value = parseFloat(userInput[i].value *= 4.34).toFixed(2);
-        } else if(selectedPeriod[i].selectedIndex == [3]) {
+        } else if (selectedPeriod[i].selectedIndex == [3]) {
             userInput[i].value = parseFloat(userInput[i].value /= 12).toFixed(2);
         } else {
             userInput[i].value += '';
         }
     }
-    
+
 }
 
 
@@ -153,13 +153,13 @@ function calcIncome() {
     let userIncome = document.getElementsByClassName('income');
     let totalIncome = 0;
 
-    for(let i of userIncome) {
-        
-        if(i.value) {
+    for (let i of userIncome) {
+
+        if (i.value) {
             totalIncome += parseFloat(i.value);
         } else {
             totalIncome += 0;
-        }        
+        }
     }
     return totalIncome;
 }
@@ -169,17 +169,17 @@ function calcIncome() {
  * Calculate total monthly expenses
  */
 function calcExpenses() {
-    
+
     let userExpense = document.getElementsByClassName('expense');
     let totalExpense = 0;
 
-    for(let e of userExpense) {
-        
-        if(e.value) {
-            totalExpense += parseFloat(e.value); 
+    for (let e of userExpense) {
+
+        if (e.value) {
+            totalExpense += parseFloat(e.value);
         } else {
             totalExpense += 0;
-        }        
+        }
     }
     return totalExpense;
 }
@@ -191,13 +191,13 @@ function calcExpenses() {
 function calculateResult() {
 
     // Call calcPeriod function to get monthly inputs
-    calcPeriod();   
+    calcPeriod();
     // Output conditional results to the DOM
-    
+
     let outcome = calcIncome() - calcExpenses();
 
-    let resHtml = 
-    `
+    let resHtml =
+        `
     <div id='incomeTotal'>
         <h3>Total Monthly Income</h3>
         <p>${selectedCurrency.value}${Math.round(calcIncome()* 100) / 100}</p>
@@ -213,15 +213,15 @@ function calculateResult() {
     `;
 
     document.getElementById('results').innerHTML = resHtml;
-       
+
     // Style the outcomes using conditional statements
-    if(calcIncome() > 0) {
+    if (calcIncome() > 0) {
         document.getElementById('incomeTotal').style.color = '#00b200';
     } else {
         document.getElementById('incomeTotal').style.color = '#ff0000';
     }
 
-    if(outcome > 0) {
+    if (outcome > 0) {
         document.getElementById('outcome').style.color = '#00b200';
     } else {
         document.getElementById('outcome').style.color = '#ff0000';
@@ -229,10 +229,10 @@ function calculateResult() {
 
     // Call draw chart function
     drawChart();
-    
+
     // Hide results and chart divs if not needed
     document.getElementById('results').style.display = 'block';
-    if(calcExpenses() === 0) {
+    if (calcExpenses() === 0) {
         document.getElementById('chart').style.display = 'none';
     } else {
         document.getElementById('chart').style.display = 'block';
@@ -240,14 +240,16 @@ function calculateResult() {
 
     // Reset drop down buttons back to Monthly after calculation
     let selectedPeriods = document.getElementsByClassName('period');
-    for(let selected of selectedPeriods) {
+    for (let selected of selectedPeriods) {
         selected.selectedIndex = '2';
     }
 }
 
 
 // Load the Visualization API and the corechart package for the pie chart.
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {
+    'packages': ['corechart']
+});
 
 // Set a callback to run when the Google Visualization API is loaded.
 google.charts.setOnLoadCallback(drawChart);
@@ -256,40 +258,40 @@ google.charts.setOnLoadCallback(drawChart);
 /**
  * Calculate user input sections and use data to create a pie chart
  */
-function drawChart() {   
+function drawChart() {
 
     // Calculate sum of section data for pie chart
     let financeAndDebt = document.getElementsByClassName('finances');
     let financeAndDebtSum = 0;
 
-    for(let finance of financeAndDebt) {
-        
-        if(finance.value) {
+    for (let finance of financeAndDebt) {
+
+        if (finance.value) {
             financeAndDebtSum += parseFloat(finance.value);
         } else {
             financeAndDebtSum += 0;
         }
-    }    
+    }
 
     let savingsSection = document.getElementsByClassName('savings');
     let savingsSum = 0;
-    
-    for(let saving of savingsSection) {
-            
-        if(saving.value) {
+
+    for (let saving of savingsSection) {
+
+        if (saving.value) {
             savingsSum += parseFloat(saving.value);
         } else {
             savingsSum += 0;
         }
     }
-    
+
 
     let billsSection = document.getElementsByClassName('bills');
     let billsSum = 0;
-    
-    for(let bill of billsSection) {
-            
-        if(bill.value) {
+
+    for (let bill of billsSection) {
+
+        if (bill.value) {
             billsSum += parseFloat(bill.value);
         } else {
             billsSum += 0;
@@ -298,10 +300,10 @@ function drawChart() {
 
     let insuranceSection = document.getElementsByClassName('insurance');
     let insuranceSum = 0;
-    
-    for(let insure of insuranceSection) {
-            
-        if(insure.value) {
+
+    for (let insure of insuranceSection) {
+
+        if (insure.value) {
             insuranceSum += parseFloat(insure.value);
         } else {
             insuranceSum += 0;
@@ -310,10 +312,10 @@ function drawChart() {
 
     let subSection = document.getElementsByClassName('subscriptions');
     let subSum = 0;
-    
-    for(let sub of subSection) {
-            
-        if(sub.value) {
+
+    for (let sub of subSection) {
+
+        if (sub.value) {
             subSum += parseFloat(sub.value);
         } else {
             subSum += 0;
@@ -322,10 +324,10 @@ function drawChart() {
 
     let tranSection = document.getElementsByClassName('transport');
     let tranSum = 0;
-    
-    for(let tran of tranSection) {
-            
-        if(tran.value) {
+
+    for (let tran of tranSection) {
+
+        if (tran.value) {
             tranSum += parseFloat(tran.value);
         } else {
             tranSum += 0;
@@ -334,10 +336,10 @@ function drawChart() {
 
     let livingSection = document.getElementsByClassName('living');
     let livingSum = 0;
-    
-    for(let live of livingSection) {
-            
-        if(live.value) {
+
+    for (let live of livingSection) {
+
+        if (live.value) {
             livingSum += parseFloat(live.value);
         } else {
             livingSum += 0;
@@ -346,10 +348,10 @@ function drawChart() {
 
     let familySection = document.getElementsByClassName('family');
     let familySum = 0;
-    
-    for(let fam of familySection) {
-            
-        if(fam.value) {
+
+    for (let fam of familySection) {
+
+        if (fam.value) {
             familySum += parseFloat(fam.value);
         } else {
             familySum += 0;
@@ -358,15 +360,15 @@ function drawChart() {
 
     let leisureSection = document.getElementsByClassName('leisure');
     let leisureSum = 0;
-    
-    for(let l of leisureSection) {
-            
-        if(l.value) {
+
+    for (let l of leisureSection) {
+
+        if (l.value) {
             leisureSum += parseFloat(l.value);
         } else {
             leisureSum += 0;
         }
-    }    
+    }
 
     // Callback that creates and populates a data table,
     // instantiates the pie chart, passes in the data and
@@ -386,17 +388,19 @@ function drawChart() {
         ['Living Costs', livingSum],
         ['Family', familySum],
         ['Leisure', leisureSum]
-        ]);
+    ]);
 
     // Set chart options
-    var options = {'title':'Expenditure Overview',
-                    is3D: true,
-                    width:'100%',
-                    height:'400'};
+    var options = {
+        'title': 'Expenditure Overview',
+        is3D: true,
+        width: '100%',
+        height: '400'
+    };
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById("chart"));
-    chart.draw(data, options);   
+    chart.draw(data, options);
 }
 
 
@@ -422,18 +426,18 @@ function addBox(incOrExp, btnAssign, secAssign) {
             <option value='yearly'>Yearly</option>
         </div>
     </div>
-    `;       
-    
+    `;
+
     // Add template literal to specific section with relevant class names
     let addBtnHtml = document.getElementById(btnAssign);
     addBtnHtml.insertAdjacentHTML('beforebegin', newBoxHtml);
-    
+
     // Remove nearest new fields when remove button clicked
     let remButton = document.getElementsByClassName('rem-box-btn');
 
-    for(let rem of remButton) {
-        rem.addEventListener('click', function(r) {
+    for (let rem of remButton) {
+        rem.addEventListener('click', function (r) {
             r.target.closest('.newBox').remove();
-        });                  
-    }    
+        });
+    }
 }
