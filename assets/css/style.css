@@ -311,7 +311,7 @@ footer p {
         font-size: 1rem;
     }
 
-    .drop, .user-input, .add-box, .rem-box {
+    .drop, .user-input, .add-box, .rem-box, .container {
         width: 90%;
     }
 
