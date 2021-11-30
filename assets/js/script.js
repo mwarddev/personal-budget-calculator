@@ -99,7 +99,7 @@ function validator() {
     let valid = 0;
     for(let userNum of userNums) {
 
-        if(userNum.value > 0 && (userNum.value == parseFloat(userNum.value).toFixed(2) || userNum.value == parseInt(userNum.value)))  {
+        if(userNum.value >= 0 && (userNum.value == parseFloat(userNum.value).toFixed(2) || userNum.value == parseInt(userNum.value)))  {
             userNum.style.backgroundColor = '#ffffff';
             userNum.style.color = '#008600';
             valid++;
@@ -319,6 +319,18 @@ function drawChart() {
         }
     }
 
+    let tranSection = document.getElementsByClassName('transport');
+    let tranSum = 0;
+    
+    for(let tran of tranSection) {
+            
+        if(tran.value) {
+            tranSum += parseFloat(tran.value);
+        } else {
+            tranSum += 0;
+        }
+    }
+
     let livingSection = document.getElementsByClassName('living');
     let livingSum = 0;
     
@@ -369,6 +381,7 @@ function drawChart() {
         ['Household Bills', billsSum],
         ['Insurance', insuranceSum],
         ['Subscriptions', subSum],
+        ['Transport', tranSum],
         ['Living Costs', livingSum],
         ['Family', familySum],
         ['Leisure', leisureSum]
