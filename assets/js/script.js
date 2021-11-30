@@ -13,31 +13,31 @@ document.addEventListener('DOMContentLoaded', function() {
                     validator();
                     break;
                 case 'income':
-                    addBox('income', 'income-btn');
+                    addBox('income', 'income-btn', 'not-used');
                     break;
                 case 'finances':
-                    addBox('expense', 'finances-btn');
+                    addBox('expense', 'finances-btn', 'finances');
                     break;
                 case 'savings':
-                    addBox('expense', 'savings-btn');
+                    addBox('expense', 'savings-btn', 'savings');
                     break;
                 case 'bills':
-                    addBox('expense', 'bills-btn');
+                    addBox('expense', 'bills-btn', 'bills');
                     break;
                 case 'insurance':
-                    addBox('expense', 'bills-btn');
+                    addBox('expense', 'insurance-btn', 'insurance');
                     break;
                 case 'subscriptions':
-                    addBox('expense', 'subscriptions-btn');
+                    addBox('expense', 'subscriptions-btn', 'subscriptions');
                     break;
                 case 'transport':
-                    addBox('expense', 'transport-btn');
+                    addBox('expense', 'transport-btn', 'transport');
                     break;
                 case 'living':
-                    addBox('expense', 'living-btn');
+                    addBox('expense', 'living-btn', 'living');
                     break;
                 case 'family':
-                    addBox('expense', 'family-btn');
+                    addBox('expense', 'family-btn', 'family');
                     break;
                 case 'leisure':
                     addBox('expense', 'leisure-btn');
@@ -115,6 +115,7 @@ function validator() {
     
     if(valid == userNums.length) {
         calculateResult();
+        drawChart();
     }
     
 }
@@ -402,7 +403,7 @@ function drawChart() {
 /**
  * Add and remove input fields as and when required
  */
-function addBox(incOrExp, btnAssign) {
+function addBox(incOrExp, btnAssign, secAssign) {
 
     // template literal for new input fields + remove button
     let newBoxHtml = `
@@ -413,7 +414,7 @@ function addBox(incOrExp, btnAssign) {
         </div class='user-input'>
         <div class='user-input'>
         <input type='text' class='new-box' name='new-box' placeholder='Name of item'>
-        <input type='number' class='${incOrExp} ${btnAssign} user-value' value='' placeholder='${selectedCurrency.value}' step='0.01' min='0'>
+        <input type='number' class='${incOrExp} ${btnAssign} ${secAssign} user-value' value='' placeholder='${selectedCurrency.value}' step='0.01' min='0'>
         <select class='period' name='period'>
             <option value='daily'>Daily</option>
             <option value='weekly'>Weekly</option>
