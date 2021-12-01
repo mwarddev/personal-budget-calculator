@@ -212,11 +212,10 @@ function calculateResult() {
     </div>
     `;
 
-    showResults = document.getElementById('results');
-    showResults.innerHTML = resHtml;
+    document.getElementById('results').innerHTML = resHtml;
     // Scroll results into view
-    // resDiv = document.getElementById('results')
-    showResults.scrollIntoView({
+    resDiv = document.getElementById('results');
+    resDiv.scrollIntoView({
         block: 'start',
         inline: 'nearest',
         behavior: 'smooth'
