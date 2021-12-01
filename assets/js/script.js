@@ -243,6 +243,13 @@ function calculateResult() {
         document.getElementById('chart').style.display = 'none';
     } else {
         document.getElementById('chart').style.display = 'block';
+        // Scroll results into view
+        resDiv = document.getElementById('results')
+        resDiv.scrollIntoView(true, {
+            block: 'start',
+            inline: 'nearest',
+            behavior: 'smooth'
+        });
     }
 
     // Reset drop down buttons back to Monthly after calculation
