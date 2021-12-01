@@ -245,7 +245,7 @@ function calculateResult() {
         document.getElementById('chart').style.display = 'block';
         // Scroll results into view
         resDiv = document.getElementById('results')
-        resDiv.scrollIntoView(true, {
+        resDiv.scrollIntoView({
             block: 'start',
             inline: 'nearest',
             behavior: 'smooth'
