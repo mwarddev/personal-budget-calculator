@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function () {
             switch (att) {
                 case 'calc-btn':
                     validator();
+                    // Scroll results into view
+                    resDiv = document.getElementById('results')
+                    resDiv.scrollIntoView({
+                        block: 'start',
+                        inline: 'nearest',
+                        behavior: 'smooth'
+                    });
                     break;
                 case 'income':
                     addBox('income', 'income-btn', 'not-used');
@@ -236,22 +243,7 @@ function calculateResult() {
         document.getElementById('chart').style.display = 'none';
     } else {
         document.getElementById('chart').style.display = 'block';
-        // Scroll chart into view
-        chartDiv = document.getElementById('chart')
-        chartDiv.scrollIntoView({
-            block: 'start',
-            inline: 'nearest',
-            behavior: 'smooth'
-        });
     }
-
-    // Scroll results into view
-    resDiv = document.getElementById('results')
-    resDiv.scrollIntoView({
-        block: 'start',
-        inline: 'nearest',
-        behavior: 'smooth'
-    });
 
     // Reset drop down buttons back to Monthly after calculation
     let selectedPeriods = document.getElementsByClassName('period');
