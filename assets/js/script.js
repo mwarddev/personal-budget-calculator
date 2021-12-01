@@ -236,21 +236,28 @@ function calculateResult() {
         document.getElementById('chart').style.display = 'none';
     } else {
         document.getElementById('chart').style.display = 'block';
+        // Scroll chart into view
+        chartDiv = document.getElementById('chart')
+        chartDiv.scrollIntoView({
+            block: 'start',
+            inline: 'nearest',
+            behavior: 'smooth'
+        });
     }
+
+    // Scroll results into view
+    resDiv = document.getElementById('results')
+    resDiv.scrollIntoView({
+        block: 'start',
+        inline: 'nearest',
+        behavior: 'smooth'
+    });
 
     // Reset drop down buttons back to Monthly after calculation
     let selectedPeriods = document.getElementsByClassName('period');
     for (let selected of selectedPeriods) {
         selected.selectedIndex = '2';
     }
-        
-    // Scroll results into view
-    resDiv = document.getElementById('resultsDiv')
-    resDiv.scrollIntoView({
-        block: 'start',
-        inline: 'nearest',
-        behavior: 'smooth'
-    });
 }
 
 
