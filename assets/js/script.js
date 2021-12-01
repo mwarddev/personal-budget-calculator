@@ -213,6 +213,13 @@ function calculateResult() {
     `;
 
     document.getElementById('results').innerHTML = resHtml;
+    // Scroll results into view
+    resDiv = document.getElementById('results')
+    resDiv.scrollIntoView({
+        block: 'start',
+        inline: 'nearest',
+        behavior: 'smooth'
+    });
 
     // Style the outcomes using conditional statements
     if (calcIncome() > 0) {

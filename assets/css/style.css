@@ -269,7 +269,7 @@ footer p {
 /* Results section */
 
 #results {
-    display: none;
+    /* display: none; */
 }
 
 #results p {
