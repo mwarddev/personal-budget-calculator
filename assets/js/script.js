@@ -401,6 +401,11 @@ function drawChart() {
     // Set chart options
     var options = {
         'title': 'Expenditure Overview',
+        titleTextStyle: {
+            color: '#008600',
+            fontName: 'Roboto',
+            fontSize: '18'
+        },
         is3D: true,
         width: '100%',
         height: '400'
@@ -409,12 +414,6 @@ function drawChart() {
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById("chart"));
     chart.draw(data, options);
-
-    // chart.scrollIntoView({
-    //     block: 'start',
-    //     inline: 'nearest',
-    //     behavior: 'smooth'
-    // });
 }
 
 

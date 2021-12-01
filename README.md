@@ -287,6 +287,7 @@ The following issues were raised:
 | Added boxes not updating Google chart. | Add relevant class names to addBox function to be recognised by Google chart. |
 | Transport section not updating Google chart. | Transport section missing from drawChart function, added transport section. |
 | Google chart not rendering at the correct size when called on large screens but rendering full size when re-called or screen re-sized. | Issue is known to be caused when the chart div is hidden. To counter the issue the drawChart function is called twice when the "Calculate" button is clicked. |
+| Results rendering out of view. | Call scrollintoview method when "Calculate" button is clicked. | 
 
 #### Validator Testing
 #### CSS
