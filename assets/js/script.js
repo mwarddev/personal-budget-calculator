@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     validator();
                     // Scroll results into view
                     resDiv = document.getElementById('results')
-                    resDiv.scrollIntoView({
+                    resDiv.scrollIntoView(true, {
                         block: 'start',
                         inline: 'nearest',
                         behavior: 'smooth'
