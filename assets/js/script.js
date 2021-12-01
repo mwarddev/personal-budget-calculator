@@ -243,6 +243,14 @@ function calculateResult() {
     for (let selected of selectedPeriods) {
         selected.selectedIndex = '2';
     }
+        
+    // Scroll results into view
+    resDiv = document.getElementById('resultsDiv')
+    resDiv.scrollIntoView({
+        block: 'start',
+        inline: 'nearest',
+        behavior: 'smooth'
+    });
 }
 
 
@@ -401,6 +409,12 @@ function drawChart() {
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById("chart"));
     chart.draw(data, options);
+
+    // chart.scrollIntoView({
+    //     block: 'start',
+    //     inline: 'nearest',
+    //     behavior: 'smooth'
+    // });
 }
 
 

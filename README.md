@@ -279,6 +279,15 @@ The following issues were raised:
 * User able to input minus figures in input fields - Validator attributes added in HTML file, fixed.
 * Upon suggestion from my mentor and family member large JS functions were split into smaller functions and called where needed - Fixed.
 
+### Bugs & Fixes
+| Bug | Fix |
+| --- | --- |
+| Entering a zero into an input field would raise a validator error. | Validate for >= 0. |
+| Misaligned elements at top of page on smaller screens. | Add media query to align with other elements. |
+| Added boxes not updating Google chart. | Add relevant class names to addBox function to be recognised by Google chart. |
+| Transport section not updating Google chart. | Transport section missing from drawChart function, added transport section. |
+| Google chart not rendering at the correct size when called on large screens but rendering full size when re-called or screen re-sized. | Issue is known to be caused when the chart div is hidden. To counter the issue the drawChart function is called twice when the "Calculate" button is clicked. |
+
 #### Validator Testing
 #### CSS
 CSS code was run through the W3C CSS Jigsaw validator with no errors and 3 warnings. The first was for importing a google api for google fonts and the second and third were for the aforementioned webkits which are needed for my code to work on IOS.
