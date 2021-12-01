@@ -11,13 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
             switch (att) {
                 case 'calc-btn':
                     validator();
-                    // Scroll results into view
-                    resDiv = document.getElementById('results')
-                    resDiv.scrollIntoView(true, {
-                        block: 'start',
-                        inline: 'nearest',
-                        behavior: 'smooth'
-                    });
                     break;
                 case 'income':
                     addBox('income', 'income-btn', 'not-used');
