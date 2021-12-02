@@ -214,6 +214,15 @@ function calculateResult() {
 
     document.getElementById('results').innerHTML = resHtml;
 
+    resDiv = document.getElementById('result')
+
+    // Scroll results into view
+    resDiv.scrollIntoView({
+        block: 'start',
+        inline: 'center',
+        behavior: 'smooth'
+    });
+    
     // Style the outcomes using conditional statements
     if (calcIncome() > 0) {
         document.getElementById('incomeTotal').style.color = '#00b200';
@@ -232,7 +241,7 @@ function calculateResult() {
 
     // Hide results and chart divs if not needed
     document.getElementById('results').style.display = 'block';
-    resDiv = document.getElementById('result')
+    
     if (calcExpenses() === 0) {
         document.getElementById('chart').style.display = 'none';
         // Scroll results into view
