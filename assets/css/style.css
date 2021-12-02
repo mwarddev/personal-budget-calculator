@@ -343,3 +343,16 @@ footer p {
         width: 100%;
     }
 }
+
+/* For screens up to 360px wide */
+
+@media screen and (max-width: 360px) {
+    
+    .drop, .user-input, .add-box, .rem-box, .container {
+        width: 96%;
+    }
+
+    #calculate button {
+        margin: 2px;
+    }
+}

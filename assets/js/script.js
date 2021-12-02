@@ -216,8 +216,8 @@ function calculateResult() {
     // Scroll results into view
     resDiv = document.getElementById('results');
     resDiv.scrollIntoView({
-        block: 'start',
-        inline: 'nearest',
+        block: 'end',
+        inline: 'center',
         behavior: 'smooth'
     });
 
@@ -244,10 +244,10 @@ function calculateResult() {
     } else {
         document.getElementById('chart').style.display = 'block';
         // Scroll results into view
-        resDiv = document.getElementById('results')
-        resDiv.scrollIntoView({
-            block: 'start',
-            inline: 'nearest',
+        chartDiv = document.getElementById('chart')
+        chartDiv.scrollIntoView({
+            block: 'end',
+            inline: 'center',
             behavior: 'smooth'
         });
     }
