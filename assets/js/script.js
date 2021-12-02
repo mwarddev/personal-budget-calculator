@@ -214,7 +214,7 @@ function calculateResult() {
 
     document.getElementById('results').innerHTML = resHtml;
 
-    resDiv = document.getElementById('result')
+    resDiv = document.getElementById('results')
 
     // Scroll results into view
     resDiv.scrollIntoView({
@@ -222,7 +222,7 @@ function calculateResult() {
         inline: 'center',
         behavior: 'smooth'
     });
-    
+
     // Style the outcomes using conditional statements
     if (calcIncome() > 0) {
         document.getElementById('incomeTotal').style.color = '#00b200';
@@ -244,16 +244,11 @@ function calculateResult() {
     
     if (calcExpenses() === 0) {
         document.getElementById('chart').style.display = 'none';
-        // Scroll results into view
-        resDiv.scrollIntoView({
-            block: 'start',
-            inline: 'center',
-            behavior: 'smooth'
-        });
     } else {
         document.getElementById('chart').style.display = 'block';
+        chartDiv = document.getElementById('chart')
         // Scroll results into view       
-        resDiv.scrollIntoView({
+        chartDiv.scrollIntoView({
             block: 'start',
             inline: 'center',
             behavior: 'smooth'
