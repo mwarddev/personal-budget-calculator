@@ -254,7 +254,7 @@ Each section of the form is collapsable to keep the page tidy and not overwhelm 
 Not all form data needs to be filled in for the form to be calculated. Any empty fields are calculated with zero value.
 
 #### **Responsive**
-The site is fully responsive down to 320px screen width using percentage measurements and media queries.
+The site is fully responsive down to 310px screen width using percentage measurements and media queries.
 
 ### **Future Features**
 #### **Money saving tips**

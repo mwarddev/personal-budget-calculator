@@ -213,13 +213,6 @@ function calculateResult() {
     `;
 
     document.getElementById('results').innerHTML = resHtml;
-    // Scroll results into view
-    resDiv = document.getElementById('results');
-    resDiv.scrollIntoView({
-        block: 'end',
-        inline: 'center',
-        behavior: 'smooth'
-    });
 
     // Style the outcomes using conditional statements
     if (calcIncome() > 0) {
@@ -239,14 +232,20 @@ function calculateResult() {
 
     // Hide results and chart divs if not needed
     document.getElementById('results').style.display = 'block';
+    resDiv = document.getElementById('result')
     if (calcExpenses() === 0) {
         document.getElementById('chart').style.display = 'none';
+        // Scroll results into view
+        resDiv.scrollIntoView({
+            block: 'start',
+            inline: 'center',
+            behavior: 'smooth'
+        });
     } else {
         document.getElementById('chart').style.display = 'block';
-        // Scroll results into view
-        chartDiv = document.getElementById('chart')
-        chartDiv.scrollIntoView({
-            block: 'end',
+        // Scroll results into view       
+        resDiv.scrollIntoView({
+            block: 'start',
             inline: 'center',
             behavior: 'smooth'
         });
