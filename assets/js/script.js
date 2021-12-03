@@ -214,7 +214,7 @@ function calculateResult() {
 
     document.getElementById('results').innerHTML = resHtml;
 
-    resDiv = document.getElementById('results')
+    let resDiv = document.getElementById('results')
 
     // Scroll results into view
     resDiv.scrollIntoView({
@@ -248,7 +248,7 @@ function calculateResult() {
         document.getElementById('chart').style.display = 'block';
         chartDiv = document.getElementById('chart')
         // Scroll results into view       
-        chartDiv.scrollIntoView({
+        let chartDiv.scrollIntoView({
             block: 'start',
             inline: 'center',
             behavior: 'smooth'
