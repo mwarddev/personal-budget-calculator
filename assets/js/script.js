@@ -241,14 +241,14 @@ function calculateResult() {
 
     // Hide results and chart divs if not needed
     document.getElementById('results').style.display = 'block';
-    
+
     if (calcExpenses() === 0) {
         document.getElementById('chart').style.display = 'none';
     } else {
         document.getElementById('chart').style.display = 'block';
-        chartDiv = document.getElementById('chart')
+        let chartDiv = document.getElementById('chart')
         // Scroll results into view       
-        let chartDiv.scrollIntoView({
+        chartDiv.scrollIntoView({
             block: 'start',
             inline: 'center',
             behavior: 'smooth'
